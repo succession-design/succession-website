@@ -41,7 +41,7 @@ export function HeroSection() {
           {/* Right Visual - Video Demo */}
           <div className="relative">
             <VideoPlayer
-              videoUrl="https://files.manuscdn.com/user_upload_by_module/session_file/310519663392274051/FPUOMSPsCCVSKPad.mp4"
+              videoUrl="/demo-video.mp4"
               title="See It In Action"
               description="From interview to handover document in minutes"
             />
