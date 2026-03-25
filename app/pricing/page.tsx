@@ -8,31 +8,31 @@ import Footer from '@/components/footer';
 const tiers = [
   {
     id: 'trial',
-    name: 'Trial',
+    name: 'Deal Prep',
     price: '$97',
     period: 'one-time',
-    tagline: 'See what your business is worth',
+    tagline: 'Enter the market with a verified score and documented playbook',
     features: [
       'One AI-guided interview session',
-      'Deal Readiness Score (single snapshot)',
+      'Verified Deal Readiness Score',
       'Gap Analysis Report',
-      '20-page Succession Playbook',
-      'Identify your top 3 risk areas',
+      '20-page Buyer-Ready Playbook',
+      'Top 3 deal risk areas identified',
       'PDF export for broker conversations',
       '30-day platform access',
     ],
-    cta: 'Start for $97',
+    cta: 'Get Deal Ready — $97',
     highlight: false,
     roi: '761× average return on investment',
   },
   {
     id: 'core',
-    name: 'Core Platform',
+    name: 'Deal Platform',
     price: '$197',
     period: 'per month',
-    tagline: 'Build your buyer-ready playbook',
+    tagline: 'A complete, continuously updated deal package for serious sellers',
     features: [
-      'Everything in Trial',
+      'Everything in Deal Prep',
       'Unlimited AI interview sessions',
       'Full 5-pillar business playbook',
       'Monthly Deal Readiness Score updates',
@@ -40,18 +40,18 @@ const tiers = [
       'Buyer Q&A response templates',
       'Priority email support',
     ],
-    cta: 'Start Core Platform',
+    cta: 'Start Deal Platform',
     highlight: true,
     roi: 'Protects $360K–$720K in negotiated value',
   },
   {
     id: 'continuity',
-    name: 'Continuity',
+    name: 'Transaction Suite',
     price: '$347',
     period: 'per month',
-    tagline: 'Institutional-grade deal preparation',
+    tagline: 'Institutional-grade deal infrastructure from first conversation to close',
     features: [
-      'Everything in Core',
+      'Everything in Deal Platform',
       'Dedicated succession advisor',
       'White-label reports for your broker',
       'Multi-stakeholder deal room',
@@ -60,7 +60,7 @@ const tiers = [
       'Post-close transition planning',
       'Phone and video support',
     ],
-    cta: 'Start Continuity',
+    cta: 'Start Transaction Suite',
     highlight: false,
     roi: 'Full institutional deal support',
   },
@@ -68,12 +68,12 @@ const tiers = [
 
 const faqs = [
   {
-    q: 'What happens after I pay for the Trial?',
-    a: 'You\'ll complete the Deal Readiness Assessment, then receive your Gap Analysis and 20-page Succession Playbook within 24 hours. You\'ll also get 30 days of platform access to review and download your materials.',
+    q: 'What happens after I pay for Deal Prep?',
+    a: 'You\'ll complete the Deal Readiness Assessment, then receive your verified score, Gap Analysis, and 20-page Buyer-Ready Playbook within 24 hours. You\'ll also get 30 days of platform access to review and download your materials.',
   },
   {
-    q: 'Can I upgrade from Trial to a monthly plan?',
-    a: 'Yes. At any time during or after your Trial, you can upgrade to Core or Continuity. Your assessment data and playbook carry over seamlessly.',
+    q: 'Can I upgrade from Deal Prep to a monthly plan?',
+    a: 'Yes. At any time during or after Deal Prep, you can upgrade to Deal Platform or Transaction Suite. Your assessment data and playbook carry over seamlessly.',
   },
   {
     q: 'Is there a contract for monthly plans?',
@@ -81,7 +81,7 @@ const faqs = [
   },
   {
     q: 'What if I\'m not ready to sell yet?',
-    a: 'That\'s actually the best time to start. Owners who begin preparation 2–3 years before their target exit date consistently achieve better outcomes. The Core plan is designed for exactly this scenario.',
+    a: 'That\'s actually the best time to start. Owners who begin preparation 2–3 years before their target exit date consistently achieve better outcomes. The Deal Platform is designed for exactly this scenario — building and maintaining your deal package over time.',
   },
   {
     q: 'What does Enterprise include?',
@@ -151,8 +151,8 @@ export default function PricingPage() {
               marginBottom: '1.75rem',
               letterSpacing: '-0.01em',
             }}>
-              Transparent pricing.<br />
-              <em style={{ fontStyle: 'italic', color: '#B8965A' }}>Extraordinary return.</em>
+              Deal infrastructure.<br />
+              <em style={{ fontStyle: 'italic', color: '#B8965A' }}>Priced to close.</em>
             </h1>
             <p style={{
               fontFamily: "'Inter', sans-serif",
@@ -161,7 +161,7 @@ export default function PricingPage() {
               color: '#6B6560',
               lineHeight: 1.85,
             }}>
-              The average business owner leaves 20–40% of their sale price on the table due to poor preparation. SuccessionIO pays for itself many times over.
+              Brokers require it. Buyers reference it. Lenders rely on it. Every tier produces a verified Deal Readiness Score and buyer-ready playbook — the documents your deal depends on.
             </p>
           </div>
         </section>

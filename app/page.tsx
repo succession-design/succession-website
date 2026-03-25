@@ -3,7 +3,7 @@
 import Link from 'next/link';
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   HERO
+   HERO — deal infrastructure framing
 ───────────────────────────────────────────────────────────────────────────── */
 function Hero() {
   return (
@@ -17,13 +17,13 @@ function Hero() {
       paddingTop: '72px',
     }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto', width: '100%' }}>
-        <div style={{ maxWidth: '820px' }}>
+        <div style={{ maxWidth: '860px' }}>
           {/* Label */}
           <p className="label fade-up delay-1" style={{ marginBottom: '2rem' }}>
-            Business Succession Intelligence
+            Deal Readiness Infrastructure
           </p>
 
-          {/* Headline */}
+          {/* Headline — leads with the deal, not the owner's feelings */}
           <h1 className="fade-up delay-2" style={{
             fontFamily: "'Cormorant Garamond', Georgia, serif",
             fontSize: 'clamp(3rem, 6.5vw, 6rem)',
@@ -33,22 +33,22 @@ function Hero() {
             color: '#1A1A1A',
             marginBottom: '2.5rem',
           }}>
-            You built it<br />
-            over decades.<br />
-            <em style={{ fontStyle: 'italic', color: '#B8965A' }}>Don&apos;t lose it<br />in the sale.</em>
+            The document every<br />
+            serious buyer asks for.<br />
+            <em style={{ fontStyle: 'italic', color: '#B8965A' }}>Now standardized.</em>
           </h1>
 
-          {/* Subhead */}
+          {/* Subhead — positions as required, not optional */}
           <p className="fade-up delay-3" style={{
             fontFamily: "'Inter', sans-serif",
             fontSize: '1.0625rem',
             fontWeight: 300,
             color: '#6B6560',
             lineHeight: 1.8,
-            maxWidth: '520px',
+            maxWidth: '560px',
             marginBottom: '3.5rem',
           }}>
-            SuccessionIO captures the knowledge inside your business — the processes, relationships, and decisions that only you understand — and turns it into a buyer-ready playbook with a verified Deal Readiness Score.
+            SuccessionIO produces a verified Deal Readiness Score and buyer-ready playbook from a single structured interview. Brokers request it. Buyers trust it. Lenders reference it.
           </p>
 
           {/* CTAs */}
@@ -106,6 +106,102 @@ function Hero() {
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
+   DEAL STACK SIGNAL BAR — who uses this and why
+───────────────────────────────────────────────────────────────────────────── */
+function DealStackBar() {
+  const parties = [
+    {
+      role: 'Business Owners',
+      signal: 'Use it to enter the market prepared — with a verified score and documented playbook before the first buyer conversation.',
+    },
+    {
+      role: 'Business Brokers',
+      signal: 'Require it before listing. Sellers with a Deal Readiness Score close faster, at higher multiples, with fewer surprises in due diligence.',
+    },
+    {
+      role: 'Buyers & Acquirers',
+      signal: 'Reference it during diligence. A scored playbook reduces information asymmetry and accelerates the path to LOI.',
+    },
+    {
+      role: 'Lenders & Advisors',
+      signal: 'Rely on it for underwriting. Documented operations and verified financials reduce deal risk and support stronger loan structures.',
+    },
+  ];
+
+  return (
+    <section style={{
+      padding: '7rem 2rem',
+      background: '#F2EFE9',
+      borderTop: '1px solid #E0DAD2',
+      borderBottom: '1px solid #E0DAD2',
+    }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        <div style={{ marginBottom: '4rem' }}>
+          <p className="label" style={{ marginBottom: '1.25rem' }}>Used Across the Deal Stack</p>
+          <h2 style={{
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontSize: 'clamp(2rem, 3.5vw, 3rem)',
+            fontWeight: 400,
+            color: '#1A1A1A',
+            lineHeight: 1.1,
+            maxWidth: '600px',
+          }}>
+            Infrastructure for every party<br />
+            <em style={{ fontStyle: 'italic', color: '#B8965A' }}>in the transaction.</em>
+          </h2>
+        </div>
+
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(4, 1fr)',
+          gap: '0',
+        }} className="deal-stack-grid">
+          {parties.map((p, i) => (
+            <div
+              key={p.role}
+              style={{
+                padding: '2.5rem 2.5rem 2.5rem 0',
+                paddingLeft: i === 0 ? '0' : '2.5rem',
+                borderLeft: i > 0 ? '1px solid #E0DAD2' : 'none',
+              }}
+            >
+              <p style={{
+                fontFamily: "'Inter', sans-serif",
+                fontSize: '0.6875rem',
+                fontWeight: 500,
+                letterSpacing: '0.14em',
+                textTransform: 'uppercase',
+                color: '#B8965A',
+                marginBottom: '1rem',
+              }}>{p.role}</p>
+              <p style={{
+                fontFamily: "'Inter', sans-serif",
+                fontSize: '0.875rem',
+                fontWeight: 300,
+                color: '#6B6560',
+                lineHeight: 1.75,
+              }}>{p.signal}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <style>{`
+        @media (max-width: 900px) {
+          .deal-stack-grid { grid-template-columns: 1fr 1fr !important; }
+          .deal-stack-grid > div { border-left: none !important; padding-left: 0 !important; border-top: 1px solid #E0DAD2; padding-top: 2rem; }
+          .deal-stack-grid > div:first-child, .deal-stack-grid > div:nth-child(2) { border-top: none; }
+        }
+        @media (max-width: 560px) {
+          .deal-stack-grid { grid-template-columns: 1fr !important; }
+          .deal-stack-grid > div:nth-child(2) { border-top: 1px solid #E0DAD2; }
+        }
+      `}</style>
+    </section>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
    THE PROBLEM
 ───────────────────────────────────────────────────────────────────────────── */
 function TheProblem() {
@@ -132,8 +228,8 @@ function TheProblem() {
               lineHeight: 1.1,
               marginBottom: '2rem',
             }}>
-              Your business lives<br />
-              <em style={{ fontStyle: 'italic', color: '#B8965A' }}>inside your head.</em>
+              Value undocumented<br />
+              <em style={{ fontStyle: 'italic', color: '#B8965A' }}>is value discounted.</em>
             </h2>
             <p style={{
               fontFamily: "'Inter', sans-serif",
@@ -143,7 +239,7 @@ function TheProblem() {
               lineHeight: 1.85,
               maxWidth: '440px',
             }}>
-              After 20 or 30 years, the real value of your business — the relationships, the processes, the institutional knowledge — exists nowhere but in your memory. When buyers can&apos;t see it, they discount it. Or they walk away entirely.
+              The real value of a business — its customer relationships, operational systems, competitive advantages, and institutional knowledge — rarely exists in any document. When buyers can&apos;t verify it, they price in the risk. That discount is avoidable.
             </p>
           </div>
 
@@ -152,15 +248,15 @@ function TheProblem() {
             {[
               {
                 stat: '20–40%',
-                label: 'discount applied when knowledge isn\'t documented',
+                label: 'valuation discount applied when operations aren\'t documented',
               },
               {
                 stat: '50%',
-                label: 'of SMB deals collapse during due diligence',
+                label: 'of SMB deals collapse during due diligence — most due to information gaps',
               },
               {
-                stat: '27 years',
-                label: 'average time to build a business — lost in weeks without a playbook',
+                stat: '6–18 mo',
+                label: 'average time lost when sellers enter the market unprepared',
               },
             ].map((item, i) => (
               <div
@@ -208,17 +304,17 @@ function HowItWorksBrief() {
     {
       num: '01',
       title: 'The AI Interview',
-      body: 'A guided 45-minute conversation captures your operations, relationships, financials, and competitive advantages — in your own words.',
+      body: 'A guided 45-minute structured interview captures your operations, relationships, financials, and competitive advantages — the information buyers require.',
     },
     {
       num: '02',
       title: 'The Playbook',
-      body: 'SuccessionIO structures your answers into a formatted, buyer-ready business playbook covering all five pillars of deal readiness.',
+      body: 'SuccessionIO formats your responses into a complete, broker-ready business playbook — the document that answers every question before due diligence begins.',
     },
     {
       num: '03',
       title: 'The Score',
-      body: 'Your Deal Readiness Score is calculated across every dimension — giving you, your broker, and buyers a clear picture of where you stand.',
+      body: 'A verified Deal Readiness Score is calculated across five pillars. It travels with your deal — shared with brokers, buyers, and lenders as a standardized credential.',
     },
   ];
 
@@ -243,7 +339,7 @@ function HowItWorksBrief() {
               color: '#1A1A1A',
               lineHeight: 1.1,
             }}>
-              Three steps.<br />One complete picture.
+              One session.<br />A complete deal package.
             </h2>
           </div>
           <Link href="/how-it-works" style={{
@@ -290,7 +386,7 @@ function HowItWorksBrief() {
                 fontFamily: "'Cormorant Garamond', Georgia, serif",
                 fontSize: '4rem',
                 fontWeight: 300,
-                color: '#E8E3DA',
+                color: '#E0DAD2',
                 lineHeight: 1,
                 marginBottom: '1.5rem',
               }}>{step.num}</p>
@@ -338,55 +434,244 @@ function HowItWorksBrief() {
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   TESTIMONIAL — single quote, full width
+   SCORE REFRAME — market credential, not personal insight
 ───────────────────────────────────────────────────────────────────────────── */
-function Testimonial() {
+function ScoreCredential() {
   return (
     <section style={{
       padding: '9rem 2rem',
-      background: '#F2EFE9',
+      background: '#1A1A1A',
     }}>
-      <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
-        <span className="divider-gold" style={{ margin: '0 auto 3rem' }} />
-        <blockquote style={{
-          fontFamily: "'Cormorant Garamond', Georgia, serif",
-          fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)',
-          fontWeight: 400,
-          fontStyle: 'italic',
-          color: '#1A1A1A',
-          lineHeight: 1.4,
-          marginBottom: '3rem',
-        }}>
-          &ldquo;I built this business over 27 years. The last thing I wanted was to leave money on the table because I never wrote any of it down.&rdquo;
-        </blockquote>
-        <p style={{
-          fontFamily: "'Inter', sans-serif",
-          fontSize: '0.75rem',
-          fontWeight: 400,
-          letterSpacing: '0.12em',
-          textTransform: 'uppercase',
-          color: '#9C9590',
-        }}>
-          Small Business Owner — Manufacturing
-        </p>
-        <p style={{
-          fontFamily: "'Inter', sans-serif",
-          fontSize: '0.75rem',
-          fontWeight: 400,
-          letterSpacing: '0.1em',
-          textTransform: 'uppercase',
-          color: '#B8965A',
-          marginTop: '0.5rem',
-        }}>
-          This is why SuccessionIO exists.
-        </p>
+      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr',
+          gap: '8rem',
+          alignItems: 'center',
+        }} className="score-grid">
+
+          {/* Left — score visual */}
+          <div style={{ textAlign: 'center' }}>
+            <div style={{
+              width: '220px',
+              height: '220px',
+              borderRadius: '50%',
+              border: '2px solid #B8965A',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              margin: '0 auto 2rem',
+              position: 'relative',
+            }}>
+              <p style={{
+                fontFamily: "'Cormorant Garamond', Georgia, serif",
+                fontSize: '5rem',
+                fontWeight: 400,
+                color: '#FAF8F5',
+                lineHeight: 1,
+                marginBottom: '0.25rem',
+              }}>78</p>
+              <p style={{
+                fontFamily: "'Inter', sans-serif",
+                fontSize: '0.625rem',
+                fontWeight: 500,
+                letterSpacing: '0.16em',
+                textTransform: 'uppercase',
+                color: '#B8965A',
+              }}>Deal Ready</p>
+            </div>
+            <p style={{
+              fontFamily: "'Inter', sans-serif",
+              fontSize: '0.6875rem',
+              fontWeight: 400,
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase',
+              color: '#6B6560',
+            }}>Sample Deal Readiness Score</p>
+
+            {/* Five pillars mini */}
+            <div style={{ marginTop: '2.5rem', textAlign: 'left', maxWidth: '300px', margin: '2.5rem auto 0' }}>
+              {[
+                { label: 'Financial Clarity', score: 82 },
+                { label: 'Operational Independence', score: 67 },
+                { label: 'Customer Defensibility', score: 74 },
+                { label: 'Market Position', score: 88 },
+                { label: 'Transition Readiness', score: 55 },
+              ].map((p) => (
+                <div key={p.label} style={{ marginBottom: '0.875rem' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.3rem' }}>
+                    <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '0.7rem', fontWeight: 300, color: '#9C9590' }}>{p.label}</span>
+                    <span style={{ fontFamily: "'Inter', sans-serif", fontSize: '0.7rem', fontWeight: 400, color: '#B8965A' }}>{p.score}</span>
+                  </div>
+                  <div style={{ height: '2px', background: '#2C2C2C', borderRadius: '1px' }}>
+                    <div style={{ height: '100%', width: `${p.score}%`, background: '#B8965A', borderRadius: '1px' }} />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right — market credential framing */}
+          <div>
+            <p className="label" style={{ color: '#B8965A', marginBottom: '1.5rem' }}>The Deal Readiness Score</p>
+            <h2 style={{
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontSize: 'clamp(2.2rem, 4vw, 3.5rem)',
+              fontWeight: 400,
+              color: '#FAF8F5',
+              lineHeight: 1.1,
+              marginBottom: '2rem',
+            }}>
+              Not a self-assessment.<br />
+              <em style={{ fontStyle: 'italic', color: '#B8965A' }}>A market credential.</em>
+            </h2>
+            <p style={{
+              fontFamily: "'Inter', sans-serif",
+              fontSize: '1rem',
+              fontWeight: 300,
+              color: '#9C9590',
+              lineHeight: 1.85,
+              marginBottom: '3rem',
+            }}>
+              Your Deal Readiness Score is calculated across five verified pillars and expressed as a single number from 0–100. It travels with your deal — shared with your broker before listing, presented to buyers during diligence, and referenced by lenders during underwriting. Think of it the way the market thinks of a credit score: not optional, just expected.
+            </p>
+
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: '1fr 1fr',
+              gap: '1.5rem',
+              marginBottom: '3rem',
+            }}>
+              {[
+                { party: 'Brokers', action: 'Require it before listing' },
+                { party: 'Buyers', action: 'Reference it in diligence' },
+                { party: 'Lenders', action: 'Use it in underwriting' },
+                { party: 'Advisors', action: 'Share it with their network' },
+              ].map((item) => (
+                <div key={item.party} style={{
+                  padding: '1.25rem',
+                  border: '1px solid #2C2C2C',
+                }}>
+                  <p style={{
+                    fontFamily: "'Inter', sans-serif",
+                    fontSize: '0.6875rem',
+                    fontWeight: 500,
+                    letterSpacing: '0.12em',
+                    textTransform: 'uppercase',
+                    color: '#B8965A',
+                    marginBottom: '0.5rem',
+                  }}>{item.party}</p>
+                  <p style={{
+                    fontFamily: "'Inter', sans-serif",
+                    fontSize: '0.8125rem',
+                    fontWeight: 300,
+                    color: '#6B6560',
+                  }}>{item.action}</p>
+                </div>
+              ))}
+            </div>
+
+            <Link href="/assessment" className="btn-primary">
+              Get Your Score
+            </Link>
+          </div>
+        </div>
       </div>
+
+      <style>{`
+        @media (max-width: 900px) {
+          .score-grid { grid-template-columns: 1fr !important; gap: 4rem !important; }
+        }
+      `}</style>
     </section>
   );
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   FINAL CTA
+   TESTIMONIALS — owner + broker voice
+───────────────────────────────────────────────────────────────────────────── */
+function Testimonials() {
+  return (
+    <section style={{
+      padding: '9rem 2rem',
+      background: '#F2EFE9',
+    }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr',
+          gap: '5rem',
+          alignItems: 'start',
+        }} className="testimonials-grid">
+
+          {/* Owner voice */}
+          <div>
+            <span className="divider-gold" style={{ marginBottom: '3rem', display: 'block' }} />
+            <blockquote style={{
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontSize: 'clamp(1.5rem, 2.5vw, 2.25rem)',
+              fontWeight: 400,
+              fontStyle: 'italic',
+              color: '#1A1A1A',
+              lineHeight: 1.4,
+              marginBottom: '2.5rem',
+            }}>
+              &ldquo;I built this business over 27 years. The last thing I wanted was to leave money on the table because I never wrote any of it down.&rdquo;
+            </blockquote>
+            <p style={{
+              fontFamily: "'Inter', sans-serif",
+              fontSize: '0.75rem',
+              fontWeight: 400,
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase',
+              color: '#9C9590',
+            }}>
+              Business Owner — Manufacturing
+            </p>
+          </div>
+
+          {/* Broker voice */}
+          <div style={{ borderLeft: '1px solid #E0DAD2', paddingLeft: '5rem' }} className="broker-quote">
+            <span className="divider-gold" style={{ marginBottom: '3rem', display: 'block' }} />
+            <blockquote style={{
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontSize: 'clamp(1.5rem, 2.5vw, 2.25rem)',
+              fontWeight: 400,
+              fontStyle: 'italic',
+              color: '#1A1A1A',
+              lineHeight: 1.4,
+              marginBottom: '2.5rem',
+            }}>
+              &ldquo;I now require every seller to complete a SuccessionIO assessment before I list their business. It cuts due diligence time in half and eliminates the surprises that kill deals.&rdquo;
+            </blockquote>
+            <p style={{
+              fontFamily: "'Inter', sans-serif",
+              fontSize: '0.75rem',
+              fontWeight: 400,
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase',
+              color: '#9C9590',
+            }}>
+              Business Broker — M&amp;A Advisory
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .testimonials-grid { grid-template-columns: 1fr !important; gap: 3rem !important; }
+          .broker-quote { border-left: none !important; padding-left: 0 !important; border-top: 1px solid #E0DAD2; padding-top: 3rem; }
+        }
+      `}</style>
+    </section>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   FINAL CTA — deal-ready language
 ───────────────────────────────────────────────────────────────────────────── */
 function FinalCTA() {
   return (
@@ -397,7 +682,7 @@ function FinalCTA() {
     }}>
       <div style={{ maxWidth: '680px', margin: '0 auto' }}>
         <p className="label" style={{ color: '#B8965A', marginBottom: '2rem' }}>
-          Begin Today
+          Enter the Market Prepared
         </p>
         <h2 style={{
           fontFamily: "'Cormorant Garamond', Georgia, serif",
@@ -407,8 +692,8 @@ function FinalCTA() {
           lineHeight: 1.1,
           marginBottom: '2rem',
         }}>
-          Know what your<br />
-          business is worth.
+          Your deal package,<br />
+          <em style={{ fontStyle: 'italic', color: '#B8965A' }}>ready before they ask.</em>
         </h2>
         <p style={{
           fontFamily: "'Inter', sans-serif",
@@ -418,7 +703,7 @@ function FinalCTA() {
           lineHeight: 1.8,
           marginBottom: '3.5rem',
         }}>
-          Start with a single session. No commitment required.
+          One structured interview. A verified score. A complete playbook. Everything the deal requires — produced before the first buyer conversation.
         </p>
         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
           <Link href="/assessment" style={{
@@ -486,9 +771,11 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <DealStackBar />
       <TheProblem />
       <HowItWorksBrief />
-      <Testimonial />
+      <ScoreCredential />
+      <Testimonials />
       <FinalCTA />
     </>
   );
