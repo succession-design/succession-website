@@ -750,32 +750,73 @@ export default function ResultsClient() {
                   lineHeight: 1.6,
                   marginBottom: '1.5rem',
                 }}>
-                  Book a 30-minute call with our team to discuss your specific situation and next steps.
+                  Speak directly with our team to discuss your score and next steps.
                 </p>
-                <button style={{
-                  width: '100%',
-                  padding: '0.75rem',
-                  background: 'transparent',
-                  color: '#1A1A1A',
-                  fontFamily: "'Inter', sans-serif",
-                  fontSize: '0.75rem',
-                  fontWeight: 500,
-                  letterSpacing: '0.1em',
-                  textTransform: 'uppercase',
-                  border: '1px solid #1A1A1A',
-                  cursor: 'pointer',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = '#1A1A1A';
-                  e.currentTarget.style.color = '#FAF8F5';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'transparent';
-                  e.currentTarget.style.color = '#1A1A1A';
-                }}
+
+                {/* Call option */}
+                <a
+                  href="tel:+18329906378"
+                  style={{
+                    display: 'block',
+                    width: '100%',
+                    padding: '0.75rem',
+                    background: '#1A1A1A',
+                    color: '#FAF8F5',
+                    fontFamily: "'Inter', sans-serif",
+                    fontSize: '0.75rem',
+                    fontWeight: 500,
+                    letterSpacing: '0.1em',
+                    textTransform: 'uppercase',
+                    border: '1px solid #1A1A1A',
+                    cursor: 'pointer',
+                    textDecoration: 'none',
+                    textAlign: 'center',
+                    boxSizing: 'border-box',
+                    marginBottom: '0.75rem',
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLAnchorElement).style.background = 'transparent';
+                    (e.currentTarget as HTMLAnchorElement).style.color = '#1A1A1A';
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLAnchorElement).style.background = '#1A1A1A';
+                    (e.currentTarget as HTMLAnchorElement).style.color = '#FAF8F5';
+                  }}
                 >
-                  Schedule Call
-                </button>
+                  Call (832) 990-6378
+                </a>
+
+                {/* Email option */}
+                <a
+                  href={`mailto:succession@successionio.com?subject=Schedule%20My%20Session&body=Hi%20SuccessionIO%20Team%2C%0A%0AMy%20name%20is%20${encodeURIComponent(formData.name)}%20and%20I%20would%20like%20to%20schedule%20a%20consultation%20to%20discuss%20my%20Deal%20Readiness%20Score.%0A%0AContact%20Information%3A%0AName%3A%20${encodeURIComponent(formData.name)}%0AEmail%3A%20${encodeURIComponent(formData.email)}%0ACompany%3A%20${encodeURIComponent(formData.company)}%0APhone%3A%20${encodeURIComponent(formData.phone)}%0A%0ALooking%20forward%20to%20speaking%20with%20you.%0A%0A${encodeURIComponent(formData.name)}`}
+                  style={{
+                    display: 'block',
+                    width: '100%',
+                    padding: '0.75rem',
+                    background: 'transparent',
+                    color: '#1A1A1A',
+                    fontFamily: "'Inter', sans-serif",
+                    fontSize: '0.75rem',
+                    fontWeight: 500,
+                    letterSpacing: '0.1em',
+                    textTransform: 'uppercase',
+                    border: '1px solid #1A1A1A',
+                    cursor: 'pointer',
+                    textDecoration: 'none',
+                    textAlign: 'center',
+                    boxSizing: 'border-box',
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLAnchorElement).style.background = '#1A1A1A';
+                    (e.currentTarget as HTMLAnchorElement).style.color = '#FAF8F5';
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLAnchorElement).style.background = 'transparent';
+                    (e.currentTarget as HTMLAnchorElement).style.color = '#1A1A1A';
+                  }}
+                >
+                  Send Email Request
+                </a>
               </div>
             </div>
           </div>
