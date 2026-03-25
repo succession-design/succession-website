@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { ChevronDown, TrendingUp, AlertCircle, CheckCircle } from 'lucide-react';
+import { DealReadinessDisplay } from '@/components/deal-readiness-display';
 
 interface Deal {
   dealId: string;
