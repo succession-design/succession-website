@@ -1,8 +1,10 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { DealReadinessForm } from '@/components/deal-readiness-form';
 
 export default function AssessmentPage() {
+  const router = useRouter();
   return (
     <>
       {/* Hero */}
@@ -219,7 +221,8 @@ export default function AssessmentPage() {
           }}>
             <DealReadinessForm
               onSubmit={(data) => {
-                console.log('Assessment submitted:', data);
+                // Route to results page after form submission
+                router.push('/assessment/results');
               }}
             />
           </div>

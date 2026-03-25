@@ -259,51 +259,138 @@ export function DealReadinessForm({ onSubmit }: DealReadinessFormProps) {
     s.fields.every((f) => formData[f.key] !== undefined && formData[f.key] !== null)
   ).length;
 
+  const progressPercent = ((currentSection + 1) / FORM_SECTIONS.length) * 100;
+
   return (
-    <div className="max-w-4xl mx-auto">
-      {/* Progress Indicator */}
-      <div className="mb-8">
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-2xl font-bold text-gray-900">Deal Readiness Assessment</h2>
-          <span className="text-sm text-gray-600">
+    <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+      {/* Progress Bar */}
+      <div style={{ marginBottom: '4rem' }}>
+        <div style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginBottom: '1.5rem',
+        }}>
+          <p style={{
+            fontFamily: "'Inter', sans-serif",
+            fontSize: '0.875rem',
+            fontWeight: 400,
+            color: '#6B6560',
+          }}>
             Section {currentSection + 1} of {FORM_SECTIONS.length}
-          </span>
+          </p>
+          <p style={{
+            fontFamily: "'Inter', sans-serif",
+            fontSize: '0.875rem',
+            fontWeight: 400,
+            color: '#B8965A',
+          }}>
+            {Math.round(progressPercent)}% complete
+          </p>
         </div>
-        <div className="w-full bg-gray-200 rounded-full h-2">
-          <div
-            className="bg-purple-600 h-2 rounded-full transition-all duration-300"
-            style={{ width: `${((currentSection + 1) / FORM_SECTIONS.length) * 100}%` }}
-          />
+        <div style={{
+          width: '100%',
+          height: '2px',
+          background: '#E0DAD2',
+          position: 'relative',
+        }}>
+          <div style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            height: '100%',
+            width: `${progressPercent}%`,
+            background: '#B8965A',
+            transition: 'width 0.3s ease',
+          }} />
         </div>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-8">
+      <form onSubmit={handleSubmit}>
         {/* Section Header */}
-        <div className="bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg p-6 border border-purple-200">
-          <div className="flex items-start justify-between">
-            <div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">{section.title}</h3>
-              <p className="text-gray-600 mb-2">{section.description}</p>
-              <span className="inline-block bg-purple-600 text-white text-sm font-semibold px-3 py-1 rounded">
-                Weight: {section.weight}
-              </span>
-            </div>
-          </div>
+        <div style={{
+          marginBottom: '3.5rem',
+          paddingBottom: '2rem',
+          borderBottom: '1px solid #E0DAD2',
+        }}>
+          <p style={{
+            fontFamily: "'Inter', sans-serif",
+            fontSize: '0.6875rem',
+            fontWeight: 500,
+            letterSpacing: '0.16em',
+            textTransform: 'uppercase',
+            color: '#B8965A',
+            marginBottom: '0.875rem',
+          }}>
+            Pillar {currentSection + 1}
+          </p>
+          <h3 style={{
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontSize: '2.2rem',
+            fontWeight: 400,
+            color: '#1A1A1A',
+            marginBottom: '0.875rem',
+            lineHeight: 1.2,
+          }}>
+            {section.title}
+          </h3>
+          <p style={{
+            fontFamily: "'Inter', sans-serif",
+            fontSize: '0.9375rem',
+            fontWeight: 300,
+            color: '#6B6560',
+            lineHeight: 1.8,
+            marginBottom: '1.25rem',
+            maxWidth: '600px',
+          }}>
+            {section.description}
+          </p>
+          <span style={{
+            display: 'inline-block',
+            fontFamily: "'Inter', sans-serif",
+            fontSize: '0.75rem',
+            fontWeight: 500,
+            letterSpacing: '0.1em',
+            textTransform: 'uppercase',
+            color: '#9C9590',
+            padding: '0.5rem 1rem',
+            border: '1px solid #E0DAD2',
+          }}>
+            Weight: {section.weight}
+          </span>
         </div>
 
         {/* Form Fields */}
-        <div className="space-y-6">
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '3rem', marginBottom: '4rem' }}>
           {section.fields.map((field) => (
-            <div key={field.key} className="bg-white rounded-lg p-6 border border-gray-200">
-              <div className="mb-4">
-                <label className="block text-sm font-semibold text-gray-900 mb-1">
-                  {field.label}
-                </label>
-                <p className="text-sm text-gray-600 mb-3">{field.description}</p>
-              </div>
+            <div key={field.key} style={{
+              paddingBottom: '2.5rem',
+              borderBottom: '1px solid #E0DAD2',
+            }}>
+              <label style={{
+                display: 'block',
+                fontFamily: "'Cormorant Garamond', Georgia, serif",
+                fontSize: '1.25rem',
+                fontWeight: 500,
+                color: '#1A1A1A',
+                marginBottom: '0.5rem',
+                lineHeight: 1.2,
+              }}>
+                {field.label}
+              </label>
+              <p style={{
+                fontFamily: "'Inter', sans-serif",
+                fontSize: '0.875rem',
+                fontWeight: 300,
+                color: '#6B6560',
+                marginBottom: '1.75rem',
+                lineHeight: 1.6,
+              }}>
+                {field.description}
+              </p>
 
               {/* Slider */}
-              <div className="space-y-3">
+              <div style={{ marginBottom: '1.25rem' }}>
                 <input
                   type="range"
                   min="0"
@@ -311,45 +398,131 @@ export function DealReadinessForm({ onSubmit }: DealReadinessFormProps) {
                   step="5"
                   value={formData[field.key] ?? 0}
                   onChange={(e) => handleSliderChange(field.key, parseInt(e.target.value))}
-                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-purple-600"
+                  style={{
+                    width: '100%',
+                    height: '3px',
+                    background: '#E0DAD2',
+                    outline: 'none',
+                    borderRadius: '0',
+                    WebkitAppearance: 'none',
+                    appearance: 'none',
+                    cursor: 'pointer',
+                  }}
                 />
+                <style>{`
+                  input[type="range"]::-webkit-slider-thumb {
+                    appearance: none;
+                    width: 18px;
+                    height: 18px;
+                    background: #B8965A;
+                    cursor: pointer;
+                    border-radius: 50%;
+                    border: none;
+                  }
+                  input[type="range"]::-moz-range-thumb {
+                    width: 18px;
+                    height: 18px;
+                    background: #B8965A;
+                    cursor: pointer;
+                    border-radius: 50%;
+                    border: none;
+                  }
+                `}</style>
+              </div>
 
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-gray-600">{field.lowLabel}</span>
-                  <span className="text-lg font-bold text-purple-600">
-                    {formData[field.key] ?? 0}
-                  </span>
-                  <span className="text-xs text-gray-600">{field.highLabel}</span>
-                </div>
+              {/* Labels and Value */}
+              <div style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}>
+                <span style={{
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: '0.75rem',
+                  fontWeight: 300,
+                  color: '#9C9590',
+                }}>
+                  {field.lowLabel}
+                </span>
+                <span style={{
+                  fontFamily: "'Cormorant Garamond', Georgia, serif",
+                  fontSize: '1.5rem',
+                  fontWeight: 400,
+                  color: '#B8965A',
+                }}>
+                  {formData[field.key] ?? 0}
+                </span>
+                <span style={{
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: '0.75rem',
+                  fontWeight: 300,
+                  color: '#9C9590',
+                }}>
+                  {field.highLabel}
+                </span>
               </div>
             </div>
           ))}
         </div>
 
         {/* Navigation Buttons */}
-        <div className="flex items-center justify-between pt-6 border-t border-gray-200">
+        <div style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          paddingTop: '2rem',
+          borderTop: '1px solid #E0DAD2',
+          gap: '1rem',
+        }}>
           <button
             type="button"
             onClick={() => setCurrentSection(Math.max(0, currentSection - 1))}
             disabled={currentSection === 0}
-            className="px-6 py-2 bg-gray-200 text-gray-700 rounded-lg font-semibold disabled:opacity-50 hover:bg-gray-300 transition"
+            style={{
+              padding: '0.875rem 2rem',
+              background: currentSection === 0 ? '#F2EFE9' : '#FAF8F5',
+              color: currentSection === 0 ? '#9C9590' : '#1A1A1A',
+              fontFamily: "'Inter', sans-serif",
+              fontSize: '0.75rem',
+              fontWeight: 500,
+              letterSpacing: '0.1em',
+              textTransform: 'uppercase',
+              border: `1px solid ${currentSection === 0 ? '#E0DAD2' : '#E0DAD2'}`,
+              cursor: currentSection === 0 ? 'not-allowed' : 'pointer',
+              transition: 'all 0.2s ease',
+            }}
+            onMouseEnter={(e) => {
+              if (currentSection > 0) {
+                e.currentTarget.style.background = '#F2EFE9';
+              }
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = currentSection === 0 ? '#F2EFE9' : '#FAF8F5';
+            }}
           >
             ← Previous
           </button>
 
-          <div className="flex gap-2">
+          {/* Section Dots */}
+          <div style={{
+            display: 'flex',
+            gap: '0.5rem',
+            justifyContent: 'center',
+          }}>
             {FORM_SECTIONS.map((_, index) => (
               <button
                 key={index}
                 type="button"
                 onClick={() => setCurrentSection(index)}
-                className={`w-3 h-3 rounded-full transition ${
-                  index === currentSection
-                    ? 'bg-purple-600'
-                    : index < currentSection
-                      ? 'bg-purple-300'
-                      : 'bg-gray-300'
-                }`}
+                style={{
+                  width: '8px',
+                  height: '8px',
+                  borderRadius: '50%',
+                  border: 'none',
+                  cursor: 'pointer',
+                  background: index === currentSection ? '#B8965A' : index < currentSection ? '#B8965A' : '#E0DAD2',
+                  transition: 'background 0.2s ease',
+                }}
               />
             ))}
           </div>
@@ -357,7 +530,27 @@ export function DealReadinessForm({ onSubmit }: DealReadinessFormProps) {
           {currentSection === FORM_SECTIONS.length - 1 ? (
             <button
               type="submit"
-              className="px-6 py-2 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-700 transition"
+              style={{
+                padding: '0.875rem 2rem',
+                background: '#B8965A',
+                color: '#FAF8F5',
+                fontFamily: "'Inter', sans-serif",
+                fontSize: '0.75rem',
+                fontWeight: 500,
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                border: '1px solid #B8965A',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'transparent';
+                e.currentTarget.style.color = '#B8965A';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = '#B8965A';
+                e.currentTarget.style.color = '#FAF8F5';
+              }}
             >
               Calculate Score →
             </button>
@@ -365,7 +558,27 @@ export function DealReadinessForm({ onSubmit }: DealReadinessFormProps) {
             <button
               type="button"
               onClick={() => setCurrentSection(Math.min(FORM_SECTIONS.length - 1, currentSection + 1))}
-              className="px-6 py-2 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-700 transition"
+              style={{
+                padding: '0.875rem 2rem',
+                background: '#B8965A',
+                color: '#FAF8F5',
+                fontFamily: "'Inter', sans-serif",
+                fontSize: '0.75rem',
+                fontWeight: 500,
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                border: '1px solid #B8965A',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'transparent';
+                e.currentTarget.style.color = '#B8965A';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = '#B8965A';
+                e.currentTarget.style.color = '#FAF8F5';
+              }}
             >
               Next →
             </button>
@@ -375,10 +588,29 @@ export function DealReadinessForm({ onSubmit }: DealReadinessFormProps) {
 
       {/* Completion Message */}
       {submitted && (
-        <div className="mt-8 p-6 bg-green-50 border border-green-200 rounded-lg">
-          <h4 className="font-semibold text-green-900 mb-2">✓ Assessment Complete</h4>
-          <p className="text-green-800">
-            Your Deal Readiness Score is being calculated. You'll see your results on the next page.
+        <div style={{
+          marginTop: '3rem',
+          padding: '2rem',
+          background: '#F2EFE9',
+          border: '1px solid #E0DAD2',
+        }}>
+          <h4 style={{
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontSize: '1.25rem',
+            fontWeight: 500,
+            color: '#1A1A1A',
+            marginBottom: '0.5rem',
+          }}>
+            ✓ Assessment Complete
+          </h4>
+          <p style={{
+            fontFamily: "'Inter', sans-serif",
+            fontSize: '0.9375rem',
+            fontWeight: 300,
+            color: '#6B6560',
+            lineHeight: 1.8,
+          }}>
+            Your responses have been recorded. Next, we'll capture your contact information to display your Deal Readiness Score and personalized next steps.
           </p>
         </div>
       )}
