@@ -476,7 +476,6 @@ export default function ResultsClient() {
           gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
           gap: '2rem',
           marginBottom: '4rem',
-          className: 'next-steps-grid',
         }}>
           <div style={{
             padding: '2rem',
