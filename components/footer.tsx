@@ -11,7 +11,12 @@ export function Footer() {
         <View className="gap-8">
           {/* Brand Section */}
           <View className="gap-2">
-            <Text className="text-2xl font-bold text-foreground">Succession</Text>
+            <View className="gap-1">
+              <Text className="text-2xl font-bold text-foreground">Succession</Text>
+              <Link href="https://lpventuregroup.com" target="_blank">
+                <Text className="text-sm text-primary hover:underline">A venture of LP Venture Group</Text>
+              </Link>
+            </View>
             <Text className="text-sm text-muted max-w-xs">
               Transform your business knowledge into action. Capture, document, and share your expertise.
             </Text>
@@ -39,15 +44,15 @@ export function Footer() {
             <View className="gap-3">
               <Text className="text-sm font-semibold text-foreground">Company</Text>
               <View className="gap-2">
-                <Link href="/">
-                  <Text className="text-sm text-muted hover:text-foreground">About</Text>
-                </Link>
-                <Link href="/">
-                  <Text className="text-sm text-muted hover:text-foreground">Blog</Text>
-                </Link>
-                <Link href="/">
-                  <Text className="text-sm text-muted hover:text-foreground">Contact</Text>
-                </Link>
+              <Link href="/about">
+                <Text className="text-sm text-muted hover:text-foreground">About</Text>
+              </Link>
+              <Link href="https://lpventuregroup.com" target="_blank">
+                <Text className="text-sm text-muted hover:text-foreground">LP Venture Group</Text>
+              </Link>
+              <Link href="mailto:hello@successionio.com">
+                <Text className="text-sm text-muted hover:text-foreground">Contact</Text>
+              </Link>
               </View>
             </View>
 
@@ -89,7 +94,7 @@ export function Footer() {
         <View className="border-t border-border pt-6 gap-4">
           <View className="flex-row justify-between items-center">
             <Text className="text-sm text-muted">
-              © 2026 Succession Inc. All rights reserved.
+              © 2026 Succession Inc. A venture of LP Venture Group. All rights reserved.
             </Text>
             <View className="flex-row gap-4">
               <Link href="https://twitter.com">

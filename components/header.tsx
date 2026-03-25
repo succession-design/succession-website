@@ -7,10 +7,16 @@ export function Header() {
   return (
     <View className="bg-background border-b border-border py-4 px-6 sticky top-0 z-50">
       <View className="max-w-6xl mx-auto flex-row justify-between items-center">
-        {/* Logo */}
-        <Link href="/">
-          <Text className="text-2xl font-bold text-foreground">Succession</Text>
-        </Link>
+        {/* Logo & Branding */}
+        <View className="flex-row items-center gap-2">
+          <Link href="/">
+            <Text className="text-2xl font-bold text-foreground">Succession</Text>
+          </Link>
+          <View className="h-6 w-px bg-border" />
+          <Link href="https://lpventuregroup.com" target="_blank">
+            <Text className="text-sm text-muted hover:text-primary">by LP Venture Group</Text>
+          </Link>
+        </View>
 
         {/* Navigation */}
         <View className="flex-row gap-8 items-center">
@@ -23,7 +29,7 @@ export function Header() {
           <Link href="/#pricing">
             <Text className="text-base text-foreground hover:text-primary">Pricing</Text>
           </Link>
-          <Link href="/">
+          <Link href="/about">
             <Text className="text-base text-foreground hover:text-primary">About</Text>
           </Link>
         </View>
