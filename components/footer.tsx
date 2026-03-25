@@ -61,7 +61,7 @@ export function Footer() {
                 <Link href="/terms">
                   <Text className="text-sm text-muted hover:text-foreground">Terms of Service</Text>
                 </Link>
-                <Link href="/">
+                <Link href="/cookies">
                   <Text className="text-sm text-muted hover:text-foreground">Cookie Policy</Text>
                 </Link>
               </View>
