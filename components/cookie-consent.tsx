@@ -18,41 +18,79 @@ export function CookieConsent() {
 
   const accept = () => {
     localStorage.setItem('cookie-consent', 'accepted');
-    localStorage.setItem('cookie-consent-date', new Date().toISOString());
     setVisible(false);
   };
 
   const decline = () => {
     localStorage.setItem('cookie-consent', 'declined');
-    localStorage.setItem('cookie-consent-date', new Date().toISOString());
     setVisible(false);
   };
 
   if (!isClient || !visible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 p-4 sm:p-6">
-      <div className="max-w-lg mx-auto bg-white rounded-2xl border border-[#E2E8F0] shadow-2xl shadow-[#0B1D3A]/10 p-6">
-        <p className="text-[14px] text-[#475569] leading-relaxed mb-4">
-          We use cookies to improve your experience and analyze site usage.{' '}
-          <Link href="/cookies" className="text-[#0B1D3A] font-medium underline underline-offset-2 hover:text-[#C9A84C] transition-colors">
-            Learn more
-          </Link>
-        </p>
-        <div className="flex gap-3">
-          <button
-            onClick={accept}
-            className="flex-1 bg-[#0B1D3A] text-white text-[13px] font-semibold py-2.5 rounded-lg hover:bg-[#122B52] transition-colors"
-          >
-            Accept
-          </button>
-          <button
-            onClick={decline}
-            className="flex-1 border border-[#CBD5E1] text-[#475569] text-[13px] font-semibold py-2.5 rounded-lg hover:bg-[#F8FAFC] transition-colors"
-          >
-            Decline
-          </button>
-        </div>
+    <div style={{
+      position: 'fixed',
+      bottom: '2rem',
+      left: '2rem',
+      maxWidth: '420px',
+      background: '#1A1A1A',
+      padding: '1.75rem 2rem',
+      zIndex: 200,
+      borderTop: '2px solid #B8965A',
+    }}>
+      <p style={{
+        fontFamily: "'Inter', sans-serif",
+        fontSize: '0.8125rem',
+        fontWeight: 300,
+        color: '#9C9590',
+        lineHeight: 1.7,
+        marginBottom: '1.25rem',
+      }}>
+        We use cookies to improve your experience.{' '}
+        <Link href="/cookies" style={{
+          color: '#B8965A',
+          textDecoration: 'none',
+          borderBottom: '1px solid rgba(184,150,90,0.4)',
+        }}>
+          Learn more
+        </Link>
+      </p>
+      <div style={{ display: 'flex', gap: '0.75rem' }}>
+        <button
+          onClick={accept}
+          style={{
+            fontFamily: "'Inter', sans-serif",
+            fontSize: '0.7rem',
+            fontWeight: 500,
+            letterSpacing: '0.1em',
+            textTransform: 'uppercase',
+            color: '#FAF8F5',
+            background: '#B8965A',
+            border: '1px solid #B8965A',
+            padding: '0.65rem 1.5rem',
+            cursor: 'pointer',
+          }}
+        >
+          Accept
+        </button>
+        <button
+          onClick={decline}
+          style={{
+            fontFamily: "'Inter', sans-serif",
+            fontSize: '0.7rem',
+            fontWeight: 300,
+            letterSpacing: '0.1em',
+            textTransform: 'uppercase',
+            color: '#6B6560',
+            background: 'transparent',
+            border: '1px solid #2C2C2C',
+            padding: '0.65rem 1.5rem',
+            cursor: 'pointer',
+          }}
+        >
+          Decline
+        </button>
       </div>
     </div>
   );
