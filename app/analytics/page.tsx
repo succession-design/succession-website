@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BarChart3, TrendingUp, Users, DollarSign, Clock } from 'lucide-react';
 
 interface DealMetrics {
@@ -69,6 +69,22 @@ const mockMetrics: DealMetrics = {
 
 export default function AnalyticsDashboard() {
   const [timeRange, setTimeRange] = useState<'month' | 'quarter' | 'year'>('month');
+  const [weeklyReport, setWeeklyReport] = useState<any>(null);
+
+  useEffect(() => {
+    const fetchReport = async () => {
+      try {
+        const response = await fetch('/api/reports/weekly', {
+          headers: { 'Authorization': 'Bearer demo-token' },
+        });
+        const data = await response.json();
+        setWeeklyReport(data.report);
+      } catch (error) {
+        console.error('Error fetching report:', error);
+      }
+    };
+    fetchReport();
+  }, []);
 
   const formatCurrency = (value: number) => {
     if (value >= 1000000000) {
@@ -86,6 +102,32 @@ export default function AnalyticsDashboard() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+      {/* Weekly Assessment Report Section */}
+      {weeklyReport && (
+        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border-b border-blue-200 mb-8">
+          <div className="max-w-7xl mx-auto px-6 py-6">
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">Weekly Assessment Report</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div>
+                <p className="text-sm text-slate-600">Assessments Completed</p>
+                <p className="text-2xl font-bold text-blue-600">{weeklyReport.metrics.total_assessments_completed}</p>
+              </div>
+              <div>
+                <p className="text-sm text-slate-600">Completion Rate</p>
+                <p className="text-2xl font-bold text-blue-600">{Math.round(weeklyReport.metrics.completion_rate)}%</p>
+              </div>
+              <div>
+                <p className="text-sm text-slate-600">Leads Captured</p>
+                <p className="text-2xl font-bold text-blue-600">{weeklyReport.metrics.leads_captured}</p>
+              </div>
+              <div>
+                <p className="text-sm text-slate-600">Avg Score</p>
+                <p className="text-2xl font-bold text-blue-600">{Math.round(weeklyReport.metrics.avg_score)}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
       {/* Header */}
       <div className="bg-white border-b border-slate-200 sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-6 py-8">
