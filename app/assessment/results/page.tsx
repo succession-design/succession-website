@@ -338,12 +338,11 @@ export default function ResultsPage() {
               width: '280px',
               height: '280px',
               borderRadius: '50%',
-              background: 'conic-gradient(#B8965A 0deg, #B8965A calc(var(--percentage) * 3.6deg), #2C2C2C calc(var(--percentage) * 3.6deg), #2C2C2C 360deg)',
+              background: `conic-gradient(#B8965A 0deg, #B8965A ${mockScore * 3.6}deg, #2C2C2C ${mockScore * 3.6}deg, #2C2C2C 360deg)`,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              '--percentage': mockScore,
-            } as any}>
+            }}>
               <div style={{
                 width: '240px',
                 height: '240px',
