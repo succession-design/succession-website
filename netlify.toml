@@ -4,8 +4,9 @@
   functions = "functions"
 
 [build.environment]
-  NODE_VERSION = "20.11.0"
+  NODE_VERSION = "20.19.0"
   NODE_ENV = "production"
+  NPM_FLAGS = "--include=dev"
 
 [[redirects]]
   from = "/*"
