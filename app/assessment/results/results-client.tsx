@@ -3,9 +3,11 @@
 import { useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 
+
 export default function ResultsClient() {
   const searchParams = useSearchParams();
   const [contactCaptured, setContactCaptured] = useState(false);
+  const [trialUnlocked, setTrialUnlocked] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -470,168 +472,314 @@ export default function ResultsClient() {
           </div>
         </div>
 
-        {/* Next Steps */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-          gap: '2rem',
-          marginBottom: '4rem',
-        }}>
+        {/* Trial Unlock Gate — Gap Analysis + Playbook */}
+        {!trialUnlocked ? (
           <div style={{
-            padding: '2rem',
-            background: '#FFFFFF',
-            border: '1px solid #E0DAD2',
-            borderRight: '1px solid #E0DAD2',
+            maxWidth: '760px',
+            margin: '0 auto 4rem',
+            background: '#1A1A1A',
+            border: '1px solid #2C2C2C',
+            padding: '3rem',
+            textAlign: 'center',
           }}>
-            <h3 style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
-              fontSize: '1.25rem',
-              fontWeight: 400,
-              color: '#1A1A1A',
-              marginBottom: '1rem',
-            }}>
-              Download Playbook
-            </h3>
             <p style={{
               fontFamily: "'Inter', sans-serif",
-              fontSize: '0.875rem',
-              fontWeight: 300,
-              color: '#6B6560',
-              lineHeight: 1.6,
+              fontSize: '0.6875rem',
+              fontWeight: 500,
+              letterSpacing: '0.16em',
+              textTransform: 'uppercase',
+              color: '#B8965A',
               marginBottom: '1.5rem',
             }}>
-              Your personalized 20-page playbook with specific recommendations for each pillar.
+              Unlock Your Trial
             </p>
-            <button style={{
-              width: '100%',
-              padding: '0.75rem',
-              background: '#B8965A',
+            <h2 style={{
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontSize: 'clamp(1.75rem, 3vw, 2.5rem)',
+              fontWeight: 400,
               color: '#FAF8F5',
+              marginBottom: '1.5rem',
+              lineHeight: 1.2,
+            }}>
+              Your Gap Analysis and Playbook are ready.
+            </h2>
+            <p style={{
               fontFamily: "'Inter', sans-serif",
-              fontSize: '0.75rem',
-              fontWeight: 500,
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase',
-              border: '1px solid #B8965A',
-              cursor: 'pointer',
-              transition: 'all 0.2s ease',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = 'transparent';
-              e.currentTarget.style.color = '#B8965A';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = '#B8965A';
-              e.currentTarget.style.color = '#FAF8F5';
-            }}
-            >
-              Download PDF
-            </button>
-          </div>
+              fontSize: '0.9375rem',
+              fontWeight: 300,
+              color: '#9B9490',
+              lineHeight: 1.85,
+              marginBottom: '2.5rem',
+              maxWidth: '520px',
+              margin: '0 auto 2.5rem',
+            }}>
+              Activate your SuccessionIO Trial to access your personalized 20-page playbook, full gap analysis, and the complete platform — everything you need to close the gaps and maximize your exit value.
+            </p>
 
-          <div style={{
-            padding: '2rem',
-            background: '#FFFFFF',
-            border: '1px solid #E0DAD2',
-            borderRight: '1px solid #E0DAD2',
-          }}>
-            <h3 style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
-              fontSize: '1.25rem',
-              fontWeight: 400,
-              color: '#1A1A1A',
-              marginBottom: '1rem',
+            {/* What's included */}
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+              gap: '1rem',
+              marginBottom: '2.5rem',
+              textAlign: 'left',
             }}>
-              Gap Analysis
-            </h3>
-            <p style={{
-              fontFamily: "'Inter', sans-serif",
-              fontSize: '0.875rem',
-              fontWeight: 300,
-              color: '#6B6560',
-              lineHeight: 1.6,
-              marginBottom: '1.5rem',
-            }}>
-              Detailed breakdown of where you stand vs. buyer expectations in your industry.
-            </p>
-            <button style={{
-              width: '100%',
-              padding: '0.75rem',
-              background: '#B8965A',
-              color: '#FAF8F5',
-              fontFamily: "'Inter', sans-serif",
-              fontSize: '0.75rem',
-              fontWeight: 500,
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase',
-              border: '1px solid #B8965A',
-              cursor: 'pointer',
-              transition: 'all 0.2s ease',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = 'transparent';
-              e.currentTarget.style.color = '#B8965A';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = '#B8965A';
-              e.currentTarget.style.color = '#FAF8F5';
-            }}
-            >
-              View Analysis
-            </button>
-          </div>
+              {[
+                'Personalized 20-page playbook',
+                'Full gap analysis vs. buyer benchmarks',
+                'Pillar-by-pillar improvement roadmap',
+                'Deal Readiness Score dashboard',
+                'Document vault access',
+                '30-day platform access',
+              ].map((item, idx) => (
+                <div key={idx} style={{
+                  display: 'flex',
+                  alignItems: 'flex-start',
+                  gap: '0.75rem',
+                }}>
+                  <span style={{ color: '#B8965A', fontWeight: 'bold', flexShrink: 0 }}>✓</span>
+                  <span style={{
+                    fontFamily: "'Inter', sans-serif",
+                    fontSize: '0.8125rem',
+                    fontWeight: 300,
+                    color: '#9B9490',
+                    lineHeight: 1.5,
+                  }}>{item}</span>
+                </div>
+              ))}
+            </div>
 
-          <div style={{
-            padding: '2rem',
-            background: '#FFFFFF',
-            border: '1px solid #E0DAD2',
-          }}>
-            <h3 style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
-              fontSize: '1.25rem',
-              fontWeight: 400,
-              color: '#1A1A1A',
-              marginBottom: '1rem',
-            }}>
-              Schedule Consultation
-            </h3>
+            {/* Price */}
+            <div style={{ marginBottom: '2rem' }}>
+              <span style={{
+                fontFamily: "'Cormorant Garamond', Georgia, serif",
+                fontSize: '3.5rem',
+                fontWeight: 400,
+                color: '#FAF8F5',
+              }}>$97</span>
+              <span style={{
+                fontFamily: "'Inter', sans-serif",
+                fontSize: '0.875rem',
+                fontWeight: 300,
+                color: '#9B9490',
+                marginLeft: '0.5rem',
+              }}>one-time Trial access</span>
+            </div>
+
+            <button
+              onClick={() => {
+                // In production: redirect to Stripe checkout
+                // window.location.href = '/api/checkout/trial';
+                // For demo: simulate payment
+                setTrialUnlocked(true);
+              }}
+              style={{
+                display: 'inline-block',
+                padding: '1rem 3rem',
+                background: '#B8965A',
+                color: '#FAF8F5',
+                fontFamily: "'Inter', sans-serif",
+                fontSize: '0.75rem',
+                fontWeight: 500,
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                border: '1px solid #B8965A',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease',
+                marginBottom: '1.5rem',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'transparent';
+                e.currentTarget.style.color = '#B8965A';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = '#B8965A';
+                e.currentTarget.style.color = '#FAF8F5';
+              }}
+            >
+              Activate Trial — $97
+            </button>
+
             <p style={{
               fontFamily: "'Inter', sans-serif",
-              fontSize: '0.875rem',
+              fontSize: '0.75rem',
               fontWeight: 300,
               color: '#6B6560',
               lineHeight: 1.6,
-              marginBottom: '1.5rem',
             }}>
-              Book a 30-minute call with our team to discuss your specific situation and next steps.
+              Secure payment. 30-day access. Cancel anytime.
             </p>
-            <button style={{
-              width: '100%',
-              padding: '0.75rem',
-              background: '#B8965A',
-              color: '#FAF8F5',
-              fontFamily: "'Inter', sans-serif",
-              fontSize: '0.75rem',
-              fontWeight: 500,
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase',
-              border: '1px solid #B8965A',
-              cursor: 'pointer',
-              transition: 'all 0.2s ease',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = 'transparent';
-              e.currentTarget.style.color = '#B8965A';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = '#B8965A';
-              e.currentTarget.style.color = '#FAF8F5';
-            }}
-            >
-              Schedule Call
-            </button>
           </div>
-        </div>
+        ) : (
+          /* Post-payment: show gap analysis + playbook */
+          <div style={{ marginBottom: '4rem' }}>
+            <h2 style={{
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontSize: '2rem',
+              fontWeight: 400,
+              color: '#1A1A1A',
+              marginBottom: '2rem',
+              textAlign: 'center',
+            }}>
+              Your Trial is Active
+            </h2>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '2rem',
+            }}>
+              <div style={{
+                padding: '2rem',
+                background: '#FFFFFF',
+                border: '1px solid #E0DAD2',
+              }}>
+                <h3 style={{
+                  fontFamily: "'Cormorant Garamond', Georgia, serif",
+                  fontSize: '1.25rem',
+                  fontWeight: 400,
+                  color: '#1A1A1A',
+                  marginBottom: '1rem',
+                }}>
+                  Download Playbook
+                </h3>
+                <p style={{
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: '0.875rem',
+                  fontWeight: 300,
+                  color: '#6B6560',
+                  lineHeight: 1.6,
+                  marginBottom: '1.5rem',
+                }}>
+                  Your personalized 20-page playbook with specific recommendations for each pillar.
+                </p>
+                <button style={{
+                  width: '100%',
+                  padding: '0.75rem',
+                  background: '#B8965A',
+                  color: '#FAF8F5',
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: '0.75rem',
+                  fontWeight: 500,
+                  letterSpacing: '0.1em',
+                  textTransform: 'uppercase',
+                  border: '1px solid #B8965A',
+                  cursor: 'pointer',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = 'transparent';
+                  e.currentTarget.style.color = '#B8965A';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = '#B8965A';
+                  e.currentTarget.style.color = '#FAF8F5';
+                }}
+                >
+                  Download PDF
+                </button>
+              </div>
+
+              <div style={{
+                padding: '2rem',
+                background: '#FFFFFF',
+                border: '1px solid #E0DAD2',
+              }}>
+                <h3 style={{
+                  fontFamily: "'Cormorant Garamond', Georgia, serif",
+                  fontSize: '1.25rem',
+                  fontWeight: 400,
+                  color: '#1A1A1A',
+                  marginBottom: '1rem',
+                }}>
+                  Gap Analysis
+                </h3>
+                <p style={{
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: '0.875rem',
+                  fontWeight: 300,
+                  color: '#6B6560',
+                  lineHeight: 1.6,
+                  marginBottom: '1.5rem',
+                }}>
+                  Detailed breakdown of where you stand vs. buyer expectations in your industry.
+                </p>
+                <button style={{
+                  width: '100%',
+                  padding: '0.75rem',
+                  background: '#B8965A',
+                  color: '#FAF8F5',
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: '0.75rem',
+                  fontWeight: 500,
+                  letterSpacing: '0.1em',
+                  textTransform: 'uppercase',
+                  border: '1px solid #B8965A',
+                  cursor: 'pointer',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = 'transparent';
+                  e.currentTarget.style.color = '#B8965A';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = '#B8965A';
+                  e.currentTarget.style.color = '#FAF8F5';
+                }}
+                >
+                  View Analysis
+                </button>
+              </div>
+
+              <div style={{
+                padding: '2rem',
+                background: '#FFFFFF',
+                border: '1px solid #E0DAD2',
+              }}>
+                <h3 style={{
+                  fontFamily: "'Cormorant Garamond', Georgia, serif",
+                  fontSize: '1.25rem',
+                  fontWeight: 400,
+                  color: '#1A1A1A',
+                  marginBottom: '1rem',
+                }}>
+                  Schedule Consultation
+                </h3>
+                <p style={{
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: '0.875rem',
+                  fontWeight: 300,
+                  color: '#6B6560',
+                  lineHeight: 1.6,
+                  marginBottom: '1.5rem',
+                }}>
+                  Book a 30-minute call with our team to discuss your specific situation and next steps.
+                </p>
+                <button style={{
+                  width: '100%',
+                  padding: '0.75rem',
+                  background: 'transparent',
+                  color: '#1A1A1A',
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: '0.75rem',
+                  fontWeight: 500,
+                  letterSpacing: '0.1em',
+                  textTransform: 'uppercase',
+                  border: '1px solid #1A1A1A',
+                  cursor: 'pointer',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = '#1A1A1A';
+                  e.currentTarget.style.color = '#FAF8F5';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'transparent';
+                  e.currentTarget.style.color = '#1A1A1A';
+                }}
+                >
+                  Schedule Call
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
