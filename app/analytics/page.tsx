@@ -75,7 +75,7 @@ export default function AnalyticsDashboard() {
     const fetchReport = async () => {
       try {
         const response = await fetch('/api/reports/weekly', {
-          headers: { 'Authorization': 'Bearer demo-token' },
+          headers: { 'Authorization': `Bearer ${process.env.NEXT_PUBLIC_REPORT_TOKEN || ''}` },
         });
         const data = await response.json();
         setWeeklyReport(data.report);
