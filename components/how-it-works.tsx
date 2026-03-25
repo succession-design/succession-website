@@ -1,103 +1,92 @@
+const steps = [
+  {
+    number: '01',
+    title: 'Structure the business',
+    description: 'Convert unstructured owner knowledge into standardized operational data. Capture revenue drivers, team structure, customer dependencies, and workflows.',
+    details: ['Operational clarity', 'Revenue breakdown', 'Team dependencies'],
+  },
+  {
+    number: '02',
+    title: 'Map risks & dependencies',
+    description: 'Identify operational gaps, key-person risk, customer concentration, and transition complexity. Surface hidden risks before they derail deals.',
+    details: ['Risk identification', 'Transition planning', 'Dependency mapping'],
+  },
+  {
+    number: '03',
+    title: 'Generate Deal Readiness Score',
+    description: 'Provide a clear, standardized signal for buyers, brokers, and pricing decisions. Like a credit score for businesses.',
+    details: ['Standardized scoring', 'Risk quantification', 'Valuation support'],
+  },
+];
+
+const dimensions = [
+  { icon: '01', name: 'Operational Clarity', desc: 'Process documentation and repeatability' },
+  { icon: '02', name: 'Financial Transparency', desc: 'Revenue predictability and margins' },
+  { icon: '03', name: 'Owner Dependency', desc: 'Key-person risk and transferability' },
+  { icon: '04', name: 'Transition Complexity', desc: 'Integration and handoff requirements' },
+  { icon: '05', name: 'Risk Exposure', desc: 'Regulatory, customer, and market risk' },
+];
+
 export function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-slate-900 mb-4">How SuccessionIO works</h2>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+    <section id="how-it-works" className="py-24 lg:py-32 px-6 lg:px-8 bg-[#F8FAFC]">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-20">
+          <p className="text-[12px] font-bold text-[#C9A84C] uppercase tracking-[0.15em] mb-4">
+            The Process
+          </p>
+          <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-[#0B1D3A] leading-tight mb-6">
+            How SuccessionIO works
+          </h2>
+          <p className="text-lg text-[#475569] max-w-2xl mx-auto">
             Three steps from unstructured business knowledge to deal-ready intelligence.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Step 1 */}
-          <div className="bg-white rounded-lg p-8 border border-slate-200">
-            <div className="flex items-center justify-center w-12 h-12 bg-slate-900 text-white rounded-full font-bold mb-6">
-              1
+        {/* Steps */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
+          {steps.map((step) => (
+            <div key={step.number} className="bg-white rounded-2xl p-8 border border-[#E2E8F0] hover:shadow-lg transition-shadow duration-300">
+              <div className="text-[48px] font-black text-[#0B1D3A]/8 leading-none mb-4">{step.number}</div>
+              <h3 className="text-xl font-bold text-[#0B1D3A] mb-4">{step.title}</h3>
+              <p className="text-[15px] text-[#475569] leading-relaxed mb-6">{step.description}</p>
+              <div className="space-y-2.5">
+                {step.details.map((detail) => (
+                  <div key={detail} className="flex items-center gap-2.5">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path d="M4 8L7 11L12 5" stroke="#16A34A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                    <span className="text-[13px] text-[#475569]">{detail}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-            <h3 className="text-2xl font-bold text-slate-900 mb-4">Structure the business</h3>
-            <p className="text-slate-600 mb-6">
-              Convert unstructured owner knowledge into standardized operational data. Capture revenue drivers, team structure, customer dependencies, and operational workflows.
-            </p>
-            <div className="text-sm text-slate-500 space-y-2">
-              <p>✓ Operational clarity</p>
-              <p>✓ Revenue breakdown</p>
-              <p>✓ Team dependencies</p>
-            </div>
-          </div>
-
-          {/* Step 2 */}
-          <div className="bg-white rounded-lg p-8 border border-slate-200">
-            <div className="flex items-center justify-center w-12 h-12 bg-slate-900 text-white rounded-full font-bold mb-6">
-              2
-            </div>
-            <h3 className="text-2xl font-bold text-slate-900 mb-4">Map risks and dependencies</h3>
-            <p className="text-slate-600 mb-6">
-              Identify operational gaps, key-person risk, customer concentration, and transition complexity. Surface hidden risks before they derail deals.
-            </p>
-            <div className="text-sm text-slate-500 space-y-2">
-              <p>✓ Risk identification</p>
-              <p>✓ Transition planning</p>
-              <p>✓ Dependency mapping</p>
-            </div>
-          </div>
-
-          {/* Step 3 */}
-          <div className="bg-white rounded-lg p-8 border border-slate-200">
-            <div className="flex items-center justify-center w-12 h-12 bg-slate-900 text-white rounded-full font-bold mb-6">
-              3
-            </div>
-            <h3 className="text-2xl font-bold text-slate-900 mb-4">Generate Deal Readiness Score</h3>
-            <p className="text-slate-600 mb-6">
-              Provide a clear, standardized signal for buyers, brokers, and pricing decisions. Like a credit score for businesses — instantly understood by deal professionals.
-            </p>
-            <div className="text-sm text-slate-500 space-y-2">
-              <p>✓ Standardized scoring</p>
-              <p>✓ Risk quantification</p>
-              <p>✓ Valuation support</p>
-            </div>
-          </div>
+          ))}
         </div>
 
-        {/* Deal Readiness Score Explanation */}
-        <div className="mt-16 bg-white rounded-lg p-12 border border-slate-200">
-          <h3 className="text-2xl font-bold text-slate-900 mb-6">The Deal Readiness Score</h3>
-          <p className="text-slate-600 mb-8">
-            Every business is evaluated across five critical dimensions. The result is a single, standardized score that buyers and brokers use to assess deal quality.
-          </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-            <div className="text-center">
-              <div className="text-4xl font-bold text-slate-900 mb-2">📊</div>
-              <p className="font-semibold text-slate-900">Operational Clarity</p>
-              <p className="text-sm text-slate-600 mt-2">Process documentation and repeatability</p>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-slate-900 mb-2">💰</div>
-              <p className="font-semibold text-slate-900">Financial Transparency</p>
-              <p className="text-sm text-slate-600 mt-2">Revenue predictability and margins</p>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-slate-900 mb-2">👤</div>
-              <p className="font-semibold text-slate-900">Owner Dependency</p>
-              <p className="text-sm text-slate-600 mt-2">Key-person risk and transferability</p>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-slate-900 mb-2">🔄</div>
-              <p className="font-semibold text-slate-900">Transition Complexity</p>
-              <p className="text-sm text-slate-600 mt-2">Integration and handoff requirements</p>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-slate-900 mb-2">⚠️</div>
-              <p className="font-semibold text-slate-900">Risk Exposure</p>
-              <p className="text-sm text-slate-600 mt-2">Regulatory, customer, and market risk</p>
-            </div>
+        {/* Score Dimensions */}
+        <div className="bg-white rounded-2xl p-10 lg:p-14 border border-[#E2E8F0]">
+          <div className="mb-10">
+            <h3 className="text-2xl font-bold text-[#0B1D3A] mb-3">The Deal Readiness Score</h3>
+            <p className="text-[15px] text-[#475569] max-w-2xl">
+              Every business is evaluated across five critical dimensions. The result is a single, standardized score that buyers and brokers use to assess deal quality.
+            </p>
           </div>
 
-          <div className="mt-8 p-6 bg-slate-900 text-white rounded-lg text-center">
-            <p className="text-sm uppercase tracking-wide mb-2">Result</p>
-            <p className="text-3xl font-bold">A single Deal Readiness Score</p>
-            <p className="text-slate-300 mt-2">Used by brokers and buyers to price, evaluate, and close deals with confidence</p>
+          <div className="grid grid-cols-1 sm:grid-cols-5 gap-4 mb-10">
+            {dimensions.map((dim) => (
+              <div key={dim.name} className="p-5 bg-[#F8FAFC] rounded-xl border border-[#E2E8F0] text-center">
+                <div className="text-[11px] font-bold text-[#C9A84C] uppercase tracking-wider mb-3">{dim.icon}</div>
+                <p className="text-[14px] font-bold text-[#0B1D3A] mb-1.5">{dim.name}</p>
+                <p className="text-[12px] text-[#64748B] leading-snug">{dim.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="bg-gradient-to-r from-[#0B1D3A] to-[#1A3A6B] rounded-xl p-8 text-center">
+            <p className="text-[11px] text-[#C9A84C] uppercase tracking-[0.15em] font-bold mb-2">Result</p>
+            <p className="text-2xl sm:text-3xl font-bold text-white mb-2">A single Deal Readiness Score</p>
+            <p className="text-[#94A3B8] text-[15px]">Used by brokers and buyers to price, evaluate, and close deals with confidence</p>
           </div>
         </div>
       </div>

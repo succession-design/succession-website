@@ -1,64 +1,176 @@
 @import "tailwindcss";
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --navy-950: #06101F;
+  --navy-900: #0B1D3A;
+  --navy-800: #122B52;
+  --navy-700: #1A3A6B;
+  --navy-600: #234D8A;
+  --navy-500: #2E63A8;
+  --navy-400: #4A7FBF;
+  --navy-300: #7BA3D4;
+  --navy-200: #B0C9E8;
+  --navy-100: #DBE8F6;
+  --navy-50: #F0F5FB;
+
+  --gold-600: #A68636;
+  --gold-500: #C9A84C;
+  --gold-400: #D4B96E;
+  --gold-300: #E0CB91;
+  --gold-200: #ECDDb5;
+  --gold-100: #F5EDDA;
+  --gold-50: #FBF7EF;
+
+  --slate-950: #0C0F14;
+  --slate-800: #1E293B;
+  --slate-700: #334155;
+  --slate-600: #475569;
+  --slate-500: #64748B;
+  --slate-400: #94A3B8;
+  --slate-300: #CBD5E1;
+  --slate-200: #E2E8F0;
+  --slate-100: #F1F5F9;
+  --slate-50: #F8FAFC;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  background-color: #ffffff;
-  color: #000000;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#__next {
-  height: 100%;
-}
-
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  html,
-  body {
-    background-color: #0f172a;
-    color: #f1f5f9;
-  }
-}
-
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
 
-/* Remove default button styles */
-button {
-  font-family: inherit;
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #ffffff;
+  color: var(--navy-900);
+  line-height: 1.6;
 }
 
-/* Remove default link styles */
+/* Premium Typography */
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+
+/* Subtle selection color */
+::selection {
+  background-color: var(--gold-200);
+  color: var(--navy-900);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--slate-100);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--slate-300);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--slate-400);
+}
+
+/* Smooth transitions for interactive elements */
+a, button {
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
 a {
   color: inherit;
   text-decoration: inherit;
 }
 
-/* Ensure images are responsive */
-img {
+img, video {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-/* Ensure videos are responsive */
-video {
-  max-width: 100%;
-  height: auto;
-  display: block;
+/* Range slider styling */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--slate-200);
+  outline: none;
 }
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--navy-900);
+  cursor: pointer;
+  border: 3px solid white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--navy-900);
+  cursor: pointer;
+  border: 3px solid white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+/* Animated gradient background utility */
+@keyframes subtleShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: subtleShift 8s ease infinite;
+}
+
+/* Score ring animation */
+@keyframes scoreRingFill {
+  from { stroke-dashoffset: 314; }
+}
+
+.score-ring-animate {
+  animation: scoreRingFill 1.5s ease-out forwards;
+}
+
+/* Fade in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Stagger children */
+.stagger-children > * {
+  opacity: 0;
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+.stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
