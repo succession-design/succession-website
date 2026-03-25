@@ -32,6 +32,9 @@ export function Header() {
           <Link href="/about">
             <Text className="text-base text-foreground hover:text-primary">About</Text>
           </Link>
+          <Link href="/buyer-portal">
+            <Text className="text-base text-foreground hover:text-primary">Buyer Portal</Text>
+          </Link>
         </View>
 
         {/* CTA Button */}

@@ -37,6 +37,12 @@ export function Footer() {
                 <Link href="/#pricing">
                   <Text className="text-sm text-muted hover:text-foreground">Pricing</Text>
                 </Link>
+                <Link href="/buyer-portal">
+                  <Text className="text-sm text-muted hover:text-foreground">Buyer Portal</Text>
+                </Link>
+                <Link href="/analytics">
+                  <Text className="text-sm text-muted hover:text-foreground">Analytics</Text>
+                </Link>
               </View>
             </View>
 
