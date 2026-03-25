@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 
-export function Footer() {
+export default function Footer() {
   const year = new Date().getFullYear();
 
   const links = [

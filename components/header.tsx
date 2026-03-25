@@ -10,7 +10,7 @@ const navLinks = [
   { href: '/about', label: 'About' },
 ];
 
-export function Header() {
+export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
