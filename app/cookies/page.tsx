@@ -1,176 +1,92 @@
 'use client';
 
-import { ScreenContainer } from '@/components/screen-container';
-import { Text, View, ScrollView } from 'react-native';
-
 export default function CookiePolicyPage() {
   return (
-    <ScreenContainer className="bg-background">
-      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-        <View className="p-6 gap-6">
-          {/* Header */}
-          <View className="gap-2">
-            <Text className="text-4xl font-bold text-foreground">Cookie Policy</Text>
-            <Text className="text-base text-muted">Last Updated: March 25, 2026</Text>
-          </View>
+    <div className="min-h-screen bg-white">
+      <div className="max-w-4xl mx-auto p-6 space-y-6">
+        <div>
+          <h1 className="text-4xl font-bold text-slate-900">Cookie Policy</h1>
+          <p className="text-base text-slate-500 mt-2">Last Updated: March 25, 2026</p>
+        </div>
 
-          {/* Introduction */}
-          <View className="gap-3">
-            <Text className="text-2xl font-semibold text-foreground">What Are Cookies?</Text>
-            <Text className="text-base text-foreground leading-relaxed">
-              Cookies are small text files that are stored on your device (computer, tablet, or mobile phone) when you visit a website. They allow websites to remember information about your visit, such as your preferences and login information.
-            </Text>
-          </View>
+        <div className="space-y-3">
+          <h2 className="text-2xl font-semibold text-slate-900">What Are Cookies?</h2>
+          <p className="text-base text-slate-700 leading-relaxed">
+            Cookies are small text files that are stored on your device when you visit a website. They allow websites to remember information about your visit, such as your preferences and login information.
+          </p>
+        </div>
 
-          {/* Why We Use Cookies */}
-          <View className="gap-3">
-            <Text className="text-2xl font-semibold text-foreground">Why We Use Cookies</Text>
-            <Text className="text-base text-foreground leading-relaxed">
-              We use cookies to:
-            </Text>
-            <View className="ml-4 gap-1">
-              <Text className="text-base text-foreground">• Remember your login information and preferences</Text>
-              <Text className="text-base text-foreground">• Understand how you use our website</Text>
-              <Text className="text-base text-foreground">• Improve your user experience</Text>
-              <Text className="text-base text-foreground">• Analyze website traffic and performance</Text>
-              <Text className="text-base text-foreground">• Provide personalized content and recommendations</Text>
-              <Text className="text-base text-foreground">• Detect and prevent fraud</Text>
-            </View>
-          </View>
+        <div className="space-y-3">
+          <h2 className="text-2xl font-semibold text-slate-900">Why We Use Cookies</h2>
+          <ul className="ml-4 space-y-1 list-disc list-inside text-slate-700">
+            <li>Remember your login information and preferences</li>
+            <li>Understand how you use our website</li>
+            <li>Improve your user experience</li>
+            <li>Analyze website traffic and performance</li>
+            <li>Provide personalized content and recommendations</li>
+            <li>Detect and prevent fraud</li>
+          </ul>
+        </div>
 
-          {/* Types of Cookies */}
-          <View className="gap-3">
-            <Text className="text-2xl font-semibold text-foreground">Types of Cookies We Use</Text>
-            
-            <View className="gap-2">
-              <Text className="text-lg font-semibold text-foreground">Essential Cookies</Text>
-              <Text className="text-base text-foreground leading-relaxed">
-                These cookies are necessary for the website to function properly. They enable you to navigate the site and use its features. These cookies cannot be disabled without affecting site functionality.
-              </Text>
-              <View className="ml-4 gap-1">
-                <Text className="text-base text-foreground">• Session ID</Text>
-                <Text className="text-base text-foreground">• Authentication tokens</Text>
-                <Text className="text-base text-foreground">• CSRF protection tokens</Text>
-              </View>
-            </View>
+        <div className="space-y-4">
+          <h2 className="text-2xl font-semibold text-slate-900">Types of Cookies We Use</h2>
 
-            <View className="gap-2">
-              <Text className="text-lg font-semibold text-foreground">Performance Cookies</Text>
-              <Text className="text-base text-foreground leading-relaxed">
-                These cookies help us understand how visitors use our website by collecting and reporting information anonymously. This helps us improve website performance and user experience.
-              </Text>
-              <View className="ml-4 gap-1">
-                <Text className="text-base text-foreground">• Google Analytics</Text>
-                <Text className="text-base text-foreground">• Page load times</Text>
-                <Text className="text-base text-foreground">• Error tracking</Text>
-              </View>
-            </View>
+          <div className="space-y-2">
+            <h3 className="text-lg font-semibold text-slate-900">Essential Cookies</h3>
+            <p className="text-base text-slate-700">These cookies are necessary for the website to function properly.</p>
+            <ul className="ml-4 list-disc list-inside text-slate-700"><li>Session ID</li><li>Authentication tokens</li><li>CSRF protection tokens</li></ul>
+          </div>
 
-            <View className="gap-2">
-              <Text className="text-lg font-semibold text-foreground">Functional Cookies</Text>
-              <Text className="text-base text-foreground leading-relaxed">
-                These cookies allow us to remember your choices and provide enhanced, more personalized features.
-              </Text>
-              <View className="ml-4 gap-1">
-                <Text className="text-base text-foreground">• Language preferences</Text>
-                <Text className="text-base text-foreground">• Theme preferences</Text>
-                <Text className="text-base text-foreground">• Saved preferences</Text>
-              </View>
-            </View>
+          <div className="space-y-2">
+            <h3 className="text-lg font-semibold text-slate-900">Performance Cookies</h3>
+            <p className="text-base text-slate-700">These cookies help us understand how visitors use our website.</p>
+            <ul className="ml-4 list-disc list-inside text-slate-700"><li>Google Analytics</li><li>Page load times</li><li>Error tracking</li></ul>
+          </div>
 
-            <View className="gap-2">
-              <Text className="text-lg font-semibold text-foreground">Marketing Cookies</Text>
-              <Text className="text-base text-foreground leading-relaxed">
-                These cookies are used to track visitors across websites to display targeted advertising based on their interests.
-              </Text>
-              <View className="ml-4 gap-1">
-                <Text className="text-base text-foreground">• Advertising pixels</Text>
-                <Text className="text-base text-foreground">• Conversion tracking</Text>
-                <Text className="text-base text-foreground">• Retargeting cookies</Text>
-              </View>
-            </View>
-          </View>
+          <div className="space-y-2">
+            <h3 className="text-lg font-semibold text-slate-900">Functional Cookies</h3>
+            <p className="text-base text-slate-700">These cookies allow us to remember your choices and provide enhanced features.</p>
+            <ul className="ml-4 list-disc list-inside text-slate-700"><li>Language preferences</li><li>Theme preferences</li><li>Saved preferences</li></ul>
+          </div>
 
-          {/* Cookie Duration */}
-          <View className="gap-3">
-            <Text className="text-2xl font-semibold text-foreground">Cookie Duration</Text>
-            <Text className="text-base text-foreground leading-relaxed">
-              Cookies may be either "session" cookies or "persistent" cookies:
-            </Text>
-            <View className="ml-4 gap-2">
-              <View>
-                <Text className="text-base text-foreground font-semibold">Session Cookies</Text>
-                <Text className="text-base text-foreground">Deleted when you close your browser</Text>
-              </View>
-              <View>
-                <Text className="text-base text-foreground font-semibold">Persistent Cookies</Text>
-                <Text className="text-base text-foreground">Remain on your device for a set period (typically 1-2 years)</Text>
-              </View>
-            </View>
-          </View>
+          <div className="space-y-2">
+            <h3 className="text-lg font-semibold text-slate-900">Marketing Cookies</h3>
+            <p className="text-base text-slate-700">These cookies are used to track visitors across websites for targeted advertising.</p>
+            <ul className="ml-4 list-disc list-inside text-slate-700"><li>Advertising pixels</li><li>Conversion tracking</li><li>Retargeting cookies</li></ul>
+          </div>
+        </div>
 
-          {/* Third-Party Cookies */}
-          <View className="gap-3">
-            <Text className="text-2xl font-semibold text-foreground">Third-Party Cookies</Text>
-            <Text className="text-base text-foreground leading-relaxed">
-              We may allow third parties to place cookies on your device for analytics and marketing purposes:
-            </Text>
-            <View className="ml-4 gap-1">
-              <Text className="text-base text-foreground">• Google Analytics - Website analytics</Text>
-              <Text className="text-base text-foreground">• Stripe - Payment processing</Text>
-              <Text className="text-base text-foreground">• Social media platforms - Social sharing</Text>
-            </View>
-          </View>
+        <div className="space-y-3">
+          <h2 className="text-2xl font-semibold text-slate-900">Cookie Duration</h2>
+          <p className="text-base text-slate-700"><strong>Session Cookies:</strong> Deleted when you close your browser.</p>
+          <p className="text-base text-slate-700"><strong>Persistent Cookies:</strong> Remain on your device for a set period (typically 1-2 years).</p>
+        </div>
 
-          {/* Managing Cookies */}
-          <View className="gap-3">
-            <Text className="text-2xl font-semibold text-foreground">Managing Your Cookies</Text>
-            <Text className="text-base text-foreground leading-relaxed">
-              You can control and manage cookies in several ways:
-            </Text>
-            <View className="ml-4 gap-2">
-              <View>
-                <Text className="text-base text-foreground font-semibold">Browser Settings</Text>
-                <Text className="text-base text-foreground">Most browsers allow you to refuse cookies or alert you when cookies are being sent.</Text>
-              </View>
-              <View>
-                <Text className="text-base text-foreground font-semibold">Cookie Consent Banner</Text>
-                <Text className="text-base text-foreground">Use our cookie consent banner to accept or reject non-essential cookies.</Text>
-              </View>
-              <View>
-                <Text className="text-base text-foreground font-semibold">Opt-Out Tools</Text>
-                <Text className="text-base text-foreground">Use opt-out tools provided by analytics and advertising companies.</Text>
-              </View>
-            </View>
-          </View>
+        <div className="space-y-3">
+          <h2 className="text-2xl font-semibold text-slate-900">Third-Party Cookies</h2>
+          <ul className="ml-4 list-disc list-inside text-slate-700">
+            <li>Google Analytics - Website analytics</li>
+            <li>Stripe - Payment processing</li>
+            <li>Social media platforms - Social sharing</li>
+          </ul>
+        </div>
 
-          {/* Privacy Impact */}
-          <View className="gap-3">
-            <Text className="text-2xl font-semibold text-foreground">Privacy Impact</Text>
-            <Text className="text-base text-foreground leading-relaxed">
-              Disabling cookies may affect your ability to use certain features of our website. Essential cookies cannot be disabled as they are necessary for the site to function.
-            </Text>
-          </View>
+        <div className="space-y-3">
+          <h2 className="text-2xl font-semibold text-slate-900">Managing Your Cookies</h2>
+          <p className="text-base text-slate-700"><strong>Browser Settings:</strong> Most browsers allow you to refuse cookies or alert you when cookies are being sent.</p>
+          <p className="text-base text-slate-700"><strong>Cookie Consent Banner:</strong> Use our cookie consent banner to accept or reject non-essential cookies.</p>
+          <p className="text-base text-slate-700"><strong>Opt-Out Tools:</strong> Use opt-out tools provided by analytics and advertising companies.</p>
+        </div>
 
-          {/* Contact */}
-          <View className="gap-3">
-            <Text className="text-2xl font-semibold text-foreground">Questions?</Text>
-            <Text className="text-base text-foreground leading-relaxed">
-              If you have questions about our cookie policy, please contact us at:
-            </Text>
-            <View className="ml-4 gap-1">
-              <Text className="text-base text-foreground font-semibold">Email: privacy@successionio.com</Text>
-            </View>
-          </View>
+        <div className="space-y-3">
+          <h2 className="text-2xl font-semibold text-slate-900">Questions?</h2>
+          <p className="text-base text-slate-700">Contact us at: <strong>privacy@successionio.com</strong></p>
+        </div>
 
-          {/* Footer */}
-          <View className="py-4 border-t border-border">
-            <Text className="text-sm text-muted">
-              This Cookie Policy is effective as of March 25, 2026 and may be updated periodically.
-            </Text>
-          </View>
-        </View>
-      </ScrollView>
-    </ScreenContainer>
+        <div className="py-4 border-t border-slate-200">
+          <p className="text-sm text-slate-500">This Cookie Policy is effective as of March 25, 2026.</p>
+        </div>
+      </div>
+    </div>
   );
 }

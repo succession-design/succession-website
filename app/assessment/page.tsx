@@ -1,3 +1,5 @@
+'use client';
+
 import { DealReadinessForm } from '@/components/deal-readiness-form';
 
 export default function AssessmentPage() {

@@ -1,47 +1,46 @@
 'use client';
 
 import Link from 'next/link';
-import { View, Text, Pressable } from 'react-native';
 
 export function Header() {
   return (
-    <View className="bg-background border-b border-border py-4 px-6 sticky top-0 z-50">
-      <View className="max-w-6xl mx-auto flex-row justify-between items-center">
+    <header className="bg-white border-b border-slate-200 py-4 px-6 sticky top-0 z-50">
+      <div className="max-w-6xl mx-auto flex justify-between items-center">
         {/* Logo & Branding */}
-        <View className="flex-row items-center gap-2">
+        <div className="flex items-center gap-2">
           <Link href="/">
-            <Text className="text-2xl font-bold text-foreground">Succession</Text>
+            <span className="text-2xl font-bold text-slate-900">Succession</span>
           </Link>
-          <View className="h-6 w-px bg-border" />
+          <div className="h-6 w-px bg-slate-200" />
           <Link href="https://lpventuregroup.com" target="_blank">
-            <Text className="text-sm text-muted hover:text-primary">by LP Venture Group</Text>
+            <span className="text-sm text-slate-500 hover:text-slate-700">by LP Venture Group</span>
           </Link>
-        </View>
+        </div>
 
         {/* Navigation */}
-        <View className="flex-row gap-8 items-center">
-          <Link href="/">
-            <Text className="text-base text-foreground hover:text-primary">Home</Text>
+        <nav className="hidden md:flex gap-8 items-center">
+          <Link href="/" className="text-base text-slate-700 hover:text-slate-900">
+            Home
           </Link>
-          <Link href="/#features">
-            <Text className="text-base text-foreground hover:text-primary">Features</Text>
+          <Link href="/#features" className="text-base text-slate-700 hover:text-slate-900">
+            Features
           </Link>
-          <Link href="/#pricing">
-            <Text className="text-base text-foreground hover:text-primary">Pricing</Text>
+          <Link href="/#pricing" className="text-base text-slate-700 hover:text-slate-900">
+            Pricing
           </Link>
-          <Link href="/about">
-            <Text className="text-base text-foreground hover:text-primary">About</Text>
+          <Link href="/about" className="text-base text-slate-700 hover:text-slate-900">
+            About
           </Link>
-          <Link href="/buyer-portal">
-            <Text className="text-base text-foreground hover:text-primary">Buyer Portal</Text>
+          <Link href="/buyer-portal" className="text-base text-slate-700 hover:text-slate-900">
+            Buyer Portal
           </Link>
-        </View>
+        </nav>
 
         {/* CTA Button */}
-        <Pressable className="bg-primary px-6 py-2 rounded-lg active:opacity-80">
-          <Text className="text-background font-semibold">Get Started</Text>
-        </Pressable>
-      </View>
-    </View>
+        <Link href="/seller-portal" className="bg-slate-900 text-white px-6 py-2 rounded-lg hover:bg-slate-800 transition-colors font-semibold">
+          Get Started
+        </Link>
+      </div>
+    </header>
   );
 }

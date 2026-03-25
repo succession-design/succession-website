@@ -1,163 +1,125 @@
 'use client';
 
-import { ScreenContainer } from '@/components/screen-container';
-import { Text, View, ScrollView } from 'react-native';
-
 export default function TermsPage() {
   return (
-    <ScreenContainer className="bg-background">
-      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-        <View className="p-6 gap-6">
-          {/* Header */}
-          <View className="gap-2">
-            <Text className="text-4xl font-bold text-foreground">Terms of Service</Text>
-            <Text className="text-base text-muted">Last Updated: March 25, 2026</Text>
-          </View>
+    <div className="min-h-screen bg-white">
+      <div className="max-w-4xl mx-auto p-6 space-y-6">
+        <div>
+          <h1 className="text-4xl font-bold text-slate-900">Terms of Service</h1>
+          <p className="text-base text-slate-500 mt-2">Last Updated: March 25, 2026</p>
+        </div>
 
-          {/* Introduction */}
-          <View className="gap-3">
-            <Text className="text-2xl font-semibold text-foreground">Introduction</Text>
-            <Text className="text-base text-foreground leading-relaxed">
-              These Terms of Service ("Terms") govern your use of Succession's website, mobile application, and services. By accessing or using our services, you agree to be bound by these Terms.
-            </Text>
-          </View>
+        <div className="space-y-3">
+          <h2 className="text-2xl font-semibold text-slate-900">Introduction</h2>
+          <p className="text-base text-slate-700 leading-relaxed">
+            These Terms of Service (&quot;Terms&quot;) govern your use of Succession&apos;s website, mobile application, and services. By accessing or using our services, you agree to be bound by these Terms.
+          </p>
+        </div>
 
-          {/* User Eligibility */}
-          <View className="gap-3">
-            <Text className="text-2xl font-semibold text-foreground">1. User Eligibility</Text>
-            <Text className="text-base text-foreground leading-relaxed">
-              You must be at least 18 years old and have the legal authority to enter into these Terms. By using our services, you represent and warrant that you meet these requirements.
-            </Text>
-          </View>
+        <div className="space-y-3">
+          <h2 className="text-2xl font-semibold text-slate-900">1. User Eligibility</h2>
+          <p className="text-base text-slate-700 leading-relaxed">
+            You must be at least 18 years old and have the legal authority to enter into these Terms. By using our services, you represent and warrant that you meet these requirements.
+          </p>
+        </div>
 
-          {/* Account Responsibility */}
-          <View className="gap-3">
-            <Text className="text-2xl font-semibold text-foreground">2. Account Responsibility</Text>
-            <Text className="text-base text-foreground leading-relaxed">
-              You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account. You agree to:
-            </Text>
-            <View className="ml-4 gap-1">
-              <Text className="text-base text-foreground">• Provide accurate and complete information</Text>
-              <Text className="text-base text-foreground">• Maintain account security</Text>
-              <Text className="text-base text-foreground">• Notify us immediately of unauthorized access</Text>
-              <Text className="text-base text-foreground">• Accept responsibility for all account activity</Text>
-            </View>
-          </View>
+        <div className="space-y-3">
+          <h2 className="text-2xl font-semibold text-slate-900">2. Account Responsibility</h2>
+          <p className="text-base text-slate-700 leading-relaxed">You are responsible for maintaining the confidentiality of your account credentials. You agree to:</p>
+          <ul className="ml-4 space-y-1 list-disc list-inside text-slate-700">
+            <li>Provide accurate and complete information</li>
+            <li>Maintain account security</li>
+            <li>Notify us immediately of unauthorized access</li>
+            <li>Accept responsibility for all account activity</li>
+          </ul>
+        </div>
 
-          {/* Acceptable Use */}
-          <View className="gap-3">
-            <Text className="text-2xl font-semibold text-foreground">3. Acceptable Use Policy</Text>
-            <Text className="text-base text-foreground leading-relaxed">
-              You agree not to use our services for:
-            </Text>
-            <View className="ml-4 gap-1">
-              <Text className="text-base text-foreground">• Illegal or unauthorized purposes</Text>
-              <Text className="text-base text-foreground">• Harassment, abuse, or threatening behavior</Text>
-              <Text className="text-base text-foreground">• Transmitting malware or harmful code</Text>
-              <Text className="text-base text-foreground">• Violating intellectual property rights</Text>
-              <Text className="text-base text-foreground">• Circumventing security measures</Text>
-              <Text className="text-base text-foreground">• Spamming or phishing</Text>
-            </View>
-          </View>
+        <div className="space-y-3">
+          <h2 className="text-2xl font-semibold text-slate-900">3. Acceptable Use Policy</h2>
+          <p className="text-base text-slate-700">You agree not to use our services for:</p>
+          <ul className="ml-4 space-y-1 list-disc list-inside text-slate-700">
+            <li>Illegal or unauthorized purposes</li>
+            <li>Harassment, abuse, or threatening behavior</li>
+            <li>Transmitting malware or harmful code</li>
+            <li>Violating intellectual property rights</li>
+            <li>Circumventing security measures</li>
+            <li>Spamming or phishing</li>
+          </ul>
+        </div>
 
-          {/* Intellectual Property */}
-          <View className="gap-3">
-            <Text className="text-2xl font-semibold text-foreground">4. Intellectual Property Rights</Text>
-            <Text className="text-base text-foreground leading-relaxed">
-              All content, features, and functionality of our services are owned by Succession, its licensors, or other providers of such material and are protected by copyright, trademark, and other intellectual property laws.
-            </Text>
-            <Text className="text-base text-foreground leading-relaxed mt-2">
-              You retain ownership of content you create (interviews, documents). By using our services, you grant Succession a license to use, reproduce, and distribute your content as necessary to provide the services.
-            </Text>
-          </View>
+        <div className="space-y-3">
+          <h2 className="text-2xl font-semibold text-slate-900">4. Intellectual Property Rights</h2>
+          <p className="text-base text-slate-700 leading-relaxed">
+            All content, features, and functionality of our services are owned by Succession, its licensors, or other providers and are protected by copyright, trademark, and other intellectual property laws.
+          </p>
+          <p className="text-base text-slate-700 leading-relaxed">
+            You retain ownership of content you create (interviews, documents). By using our services, you grant Succession a license to use, reproduce, and distribute your content as necessary to provide the services.
+          </p>
+        </div>
 
-          {/* Payment Terms */}
-          <View className="gap-3">
-            <Text className="text-2xl font-semibold text-foreground">5. Payment & Subscription Terms</Text>
-            <View className="gap-2">
-              <Text className="text-base text-foreground leading-relaxed">
-                <Text className="font-semibold">Billing:</Text> Subscription fees are billed according to your selected plan. You authorize us to charge your payment method.
-              </Text>
-              <Text className="text-base text-foreground leading-relaxed">
-                <Text className="font-semibold">Cancellation:</Text> You may cancel your subscription at any time. Cancellation takes effect at the end of your current billing period.
-              </Text>
-              <Text className="text-base text-foreground leading-relaxed">
-                <Text className="font-semibold">Refunds:</Text> Refunds are provided according to our refund policy. No refunds for partial months.
-              </Text>
-              <Text className="text-base text-foreground leading-relaxed">
-                <Text className="font-semibold">Price Changes:</Text> We may change prices with 30 days' notice. Continued use constitutes acceptance.
-              </Text>
-            </View>
-          </View>
+        <div className="space-y-3">
+          <h2 className="text-2xl font-semibold text-slate-900">5. Payment &amp; Subscription Terms</h2>
+          <p className="text-base text-slate-700"><strong>Billing:</strong> Subscription fees are billed according to your selected plan.</p>
+          <p className="text-base text-slate-700"><strong>Cancellation:</strong> You may cancel at any time. Cancellation takes effect at the end of your current billing period.</p>
+          <p className="text-base text-slate-700"><strong>Refunds:</strong> Refunds are provided according to our refund policy. No refunds for partial months.</p>
+          <p className="text-base text-slate-700"><strong>Price Changes:</strong> We may change prices with 30 days&apos; notice.</p>
+        </div>
 
-          {/* Limitation of Liability */}
-          <View className="gap-3">
-            <Text className="text-2xl font-semibold text-foreground">6. Limitation of Liability</Text>
-            <Text className="text-base text-foreground leading-relaxed">
-              TO THE MAXIMUM EXTENT PERMITTED BY LAW, SUCCESSION SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING LOSS OF PROFITS, DATA, OR USE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
-            </Text>
-          </View>
+        <div className="space-y-3">
+          <h2 className="text-2xl font-semibold text-slate-900">6. Limitation of Liability</h2>
+          <p className="text-base text-slate-700 leading-relaxed uppercase">
+            To the maximum extent permitted by law, Succession shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including loss of profits, data, or use.
+          </p>
+        </div>
 
-          {/* Disclaimer */}
-          <View className="gap-3">
-            <Text className="text-2xl font-semibold text-foreground">7. Disclaimer of Warranties</Text>
-            <Text className="text-base text-foreground leading-relaxed">
-              OUR SERVICES ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.
-            </Text>
-          </View>
+        <div className="space-y-3">
+          <h2 className="text-2xl font-semibold text-slate-900">7. Disclaimer of Warranties</h2>
+          <p className="text-base text-slate-700 leading-relaxed uppercase">
+            Our services are provided &quot;as is&quot; and &quot;as available&quot; without warranties of any kind, express or implied.
+          </p>
+        </div>
 
-          {/* Indemnification */}
-          <View className="gap-3">
-            <Text className="text-2xl font-semibold text-foreground">8. Indemnification</Text>
-            <Text className="text-base text-foreground leading-relaxed">
-              You agree to indemnify and hold harmless Succession from any claims, damages, or costs arising from your use of our services or violation of these Terms.
-            </Text>
-          </View>
+        <div className="space-y-3">
+          <h2 className="text-2xl font-semibold text-slate-900">8. Indemnification</h2>
+          <p className="text-base text-slate-700 leading-relaxed">
+            You agree to indemnify and hold harmless Succession from any claims, damages, or costs arising from your use of our services or violation of these Terms.
+          </p>
+        </div>
 
-          {/* Termination */}
-          <View className="gap-3">
-            <Text className="text-2xl font-semibold text-foreground">9. Termination</Text>
-            <Text className="text-base text-foreground leading-relaxed">
-              We may terminate or suspend your account immediately for violation of these Terms or for any reason at our discretion. Upon termination, your right to use our services ceases immediately.
-            </Text>
-          </View>
+        <div className="space-y-3">
+          <h2 className="text-2xl font-semibold text-slate-900">9. Termination</h2>
+          <p className="text-base text-slate-700 leading-relaxed">
+            We may terminate or suspend your account immediately for violation of these Terms. Upon termination, your right to use our services ceases immediately.
+          </p>
+        </div>
 
-          {/* Dispute Resolution */}
-          <View className="gap-3">
-            <Text className="text-2xl font-semibold text-foreground">10. Dispute Resolution</Text>
-            <Text className="text-base text-foreground leading-relaxed">
-              Any disputes shall be resolved through binding arbitration in San Francisco, California, governed by California law, except for intellectual property claims which may be brought in court.
-            </Text>
-          </View>
+        <div className="space-y-3">
+          <h2 className="text-2xl font-semibold text-slate-900">10. Dispute Resolution</h2>
+          <p className="text-base text-slate-700 leading-relaxed">
+            Any disputes shall be resolved through binding arbitration in San Francisco, California, governed by California law.
+          </p>
+        </div>
 
-          {/* Modifications */}
-          <View className="gap-3">
-            <Text className="text-2xl font-semibold text-foreground">11. Modifications to Terms</Text>
-            <Text className="text-base text-foreground leading-relaxed">
-              We may modify these Terms at any time. Continued use of our services after modifications constitutes acceptance of the updated Terms.
-            </Text>
-          </View>
+        <div className="space-y-3">
+          <h2 className="text-2xl font-semibold text-slate-900">11. Modifications to Terms</h2>
+          <p className="text-base text-slate-700 leading-relaxed">
+            We may modify these Terms at any time. Continued use of our services after modifications constitutes acceptance.
+          </p>
+        </div>
 
-          {/* Contact */}
-          <View className="gap-3">
-            <Text className="text-2xl font-semibold text-foreground">12. Contact Us</Text>
-            <Text className="text-base text-foreground leading-relaxed">
-              For questions about these Terms, please contact us at:
-            </Text>
-            <View className="ml-4 gap-1">
-              <Text className="text-base text-foreground font-semibold">Email: legal@successionio.com</Text>
-              <Text className="text-base text-foreground font-semibold">Address: Succession Inc., San Francisco, CA</Text>
-            </View>
-          </View>
+        <div className="space-y-3">
+          <h2 className="text-2xl font-semibold text-slate-900">12. Contact Us</h2>
+          <p className="text-base text-slate-700">For questions about these Terms, contact us at:</p>
+          <p className="text-base text-slate-700 font-semibold">Email: legal@successionio.com</p>
+          <p className="text-base text-slate-700 font-semibold">Address: Succession Inc., San Francisco, CA</p>
+        </div>
 
-          {/* Footer */}
-          <View className="py-4 border-t border-border">
-            <Text className="text-sm text-muted">
-              These Terms of Service are effective as of March 25, 2026. We reserve the right to update these terms at any time.
-            </Text>
-          </View>
-        </View>
-      </ScrollView>
-    </ScreenContainer>
+        <div className="py-4 border-t border-slate-200">
+          <p className="text-sm text-slate-500">
+            These Terms of Service are effective as of March 25, 2026.
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }

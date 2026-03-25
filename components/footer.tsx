@@ -1,124 +1,83 @@
 'use client';
 
 import Link from 'next/link';
-import { View, Text } from 'react-native';
 
 export function Footer() {
   return (
-    <View className="bg-surface border-t border-border py-8 px-6">
-      <View className="max-w-6xl mx-auto gap-6">
+    <footer className="bg-slate-50 border-t border-slate-200 py-8 px-6">
+      <div className="max-w-6xl mx-auto space-y-6">
         {/* Main Footer Content */}
-        <View className="gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           {/* Brand Section */}
-          <View className="gap-2">
-            <View className="gap-1">
-              <Text className="text-2xl font-bold text-foreground">Succession</Text>
+          <div className="md:col-span-1 space-y-2">
+            <div>
+              <p className="text-2xl font-bold text-slate-900">Succession</p>
               <Link href="https://lpventuregroup.com" target="_blank">
-                <Text className="text-sm text-primary hover:underline">A venture of LP Venture Group</Text>
+                <p className="text-sm text-blue-600 hover:underline">A venture of LP Venture Group</p>
               </Link>
-            </View>
-            <Text className="text-sm text-muted max-w-xs">
+            </div>
+            <p className="text-sm text-slate-500 max-w-xs">
               Transform your business knowledge into action. Capture, document, and share your expertise.
-            </Text>
-          </View>
+            </p>
+          </div>
 
-          {/* Links Grid */}
-          <View className="gap-6">
-            {/* Product Links */}
-            <View className="gap-3">
-              <Text className="text-sm font-semibold text-foreground">Product</Text>
-              <View className="gap-2">
-                <Link href="/">
-                  <Text className="text-sm text-muted hover:text-foreground">Home</Text>
-                </Link>
-                <Link href="/#features">
-                  <Text className="text-sm text-muted hover:text-foreground">Features</Text>
-                </Link>
-                <Link href="/#pricing">
-                  <Text className="text-sm text-muted hover:text-foreground">Pricing</Text>
-                </Link>
-                <Link href="/buyer-portal">
-                  <Text className="text-sm text-muted hover:text-foreground">Buyer Portal</Text>
-                </Link>
-                <Link href="/analytics">
-                  <Text className="text-sm text-muted hover:text-foreground">Analytics</Text>
-                </Link>
-              </View>
-            </View>
+          {/* Product Links */}
+          <div className="space-y-3">
+            <p className="text-sm font-semibold text-slate-900">Product</p>
+            <div className="space-y-2">
+              <Link href="/" className="block text-sm text-slate-500 hover:text-slate-900">Home</Link>
+              <Link href="/#features" className="block text-sm text-slate-500 hover:text-slate-900">Features</Link>
+              <Link href="/#pricing" className="block text-sm text-slate-500 hover:text-slate-900">Pricing</Link>
+              <Link href="/buyer-portal" className="block text-sm text-slate-500 hover:text-slate-900">Buyer Portal</Link>
+              <Link href="/analytics" className="block text-sm text-slate-500 hover:text-slate-900">Analytics</Link>
+            </div>
+          </div>
 
-            {/* Company Links */}
-            <View className="gap-3">
-              <Text className="text-sm font-semibold text-foreground">Company</Text>
-              <View className="gap-2">
-              <Link href="/about">
-                <Text className="text-sm text-muted hover:text-foreground">About</Text>
-              </Link>
-              <Link href="https://lpventuregroup.com" target="_blank">
-                <Text className="text-sm text-muted hover:text-foreground">LP Venture Group</Text>
-              </Link>
-              <Link href="mailto:hello@successionio.com">
-                <Text className="text-sm text-muted hover:text-foreground">Contact</Text>
-              </Link>
-              </View>
-            </View>
+          {/* Company Links */}
+          <div className="space-y-3">
+            <p className="text-sm font-semibold text-slate-900">Company</p>
+            <div className="space-y-2">
+              <Link href="/about" className="block text-sm text-slate-500 hover:text-slate-900">About</Link>
+              <Link href="https://lpventuregroup.com" target="_blank" className="block text-sm text-slate-500 hover:text-slate-900">LP Venture Group</Link>
+              <Link href="mailto:hello@successionio.com" className="block text-sm text-slate-500 hover:text-slate-900">Contact</Link>
+            </div>
+          </div>
 
-            {/* Legal Links */}
-            <View className="gap-3">
-              <Text className="text-sm font-semibold text-foreground">Legal</Text>
-              <View className="gap-2">
-                <Link href="/privacy">
-                  <Text className="text-sm text-muted hover:text-foreground">Privacy Policy</Text>
-                </Link>
-                <Link href="/terms">
-                  <Text className="text-sm text-muted hover:text-foreground">Terms of Service</Text>
-                </Link>
-                <Link href="/cookies">
-                  <Text className="text-sm text-muted hover:text-foreground">Cookie Policy</Text>
-                </Link>
-              </View>
-            </View>
+          {/* Legal Links */}
+          <div className="space-y-3">
+            <p className="text-sm font-semibold text-slate-900">Legal</p>
+            <div className="space-y-2">
+              <Link href="/privacy" className="block text-sm text-slate-500 hover:text-slate-900">Privacy Policy</Link>
+              <Link href="/terms" className="block text-sm text-slate-500 hover:text-slate-900">Terms of Service</Link>
+              <Link href="/cookies" className="block text-sm text-slate-500 hover:text-slate-900">Cookie Policy</Link>
+            </div>
+          </div>
 
-            {/* Support Links */}
-            <View className="gap-3">
-              <Text className="text-sm font-semibold text-foreground">Support</Text>
-              <View className="gap-2">
-                <Link href="/">
-                  <Text className="text-sm text-muted hover:text-foreground">Help Center</Text>
-                </Link>
-                <Link href="/">
-                  <Text className="text-sm text-muted hover:text-foreground">Contact Support</Text>
-                </Link>
-                <Link href="/">
-                  <Text className="text-sm text-muted hover:text-foreground">Status</Text>
-                </Link>
-              </View>
-            </View>
-          </View>
-        </View>
+          {/* Support Links */}
+          <div className="space-y-3">
+            <p className="text-sm font-semibold text-slate-900">Support</p>
+            <div className="space-y-2">
+              <Link href="/" className="block text-sm text-slate-500 hover:text-slate-900">Help Center</Link>
+              <Link href="/" className="block text-sm text-slate-500 hover:text-slate-900">Contact Support</Link>
+              <Link href="/" className="block text-sm text-slate-500 hover:text-slate-900">Status</Link>
+            </div>
+          </div>
+        </div>
 
         {/* Bottom Section */}
-        <View className="border-t border-border pt-6 gap-4">
-          <View className="flex-row justify-between items-center">
-            <Text className="text-sm text-muted">
-              © 2026 Succession Inc. A venture of LP Venture Group. All rights reserved.
-            </Text>
-            <View className="flex-row gap-4">
-              <Link href="https://twitter.com">
-                <Text className="text-sm text-muted hover:text-foreground">Twitter</Text>
-              </Link>
-              <Link href="https://linkedin.com">
-                <Text className="text-sm text-muted hover:text-foreground">LinkedIn</Text>
-              </Link>
-              <Link href="https://github.com">
-                <Text className="text-sm text-muted hover:text-foreground">GitHub</Text>
-              </Link>
-            </View>
-          </View>
-          <Text className="text-xs text-muted">
-            Made with ❤️ in San Francisco
-          </Text>
-        </View>
-      </View>
-    </View>
+        <div className="border-t border-slate-200 pt-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-sm text-slate-500">
+              &copy; 2026 Succession Inc. A venture of LP Venture Group. All rights reserved.
+            </p>
+            <div className="flex gap-4">
+              <Link href="https://twitter.com" className="text-sm text-slate-500 hover:text-slate-900">Twitter</Link>
+              <Link href="https://linkedin.com" className="text-sm text-slate-500 hover:text-slate-900">LinkedIn</Link>
+              <Link href="https://github.com" className="text-sm text-slate-500 hover:text-slate-900">GitHub</Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
   );
 }

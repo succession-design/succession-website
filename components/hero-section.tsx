@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { VideoPlayer } from './video-player';
 
 export function HeroSection() {
   return (
@@ -49,13 +48,49 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Right Visual - Video Demo */}
-          <div className="relative">
-            <VideoPlayer
-              videoUrl="/demo-video.mp4"
-              title="Deal Infrastructure in Action"
-              description="From unstructured business data to deal-ready intelligence"
-            />
+          {/* Right Visual - Deal Readiness Score Preview */}
+          <div className="relative bg-white rounded-2xl shadow-2xl p-8 border border-slate-200">
+            <div className="text-center mb-6">
+              <h3 className="text-lg font-semibold text-slate-900">Deal Readiness Score</h3>
+              <p className="text-sm text-slate-500">Sample Assessment</p>
+            </div>
+            <div className="flex items-center justify-center mb-6">
+              <div className="w-32 h-32 rounded-full border-8 border-emerald-500 flex items-center justify-center">
+                <span className="text-4xl font-bold text-emerald-600">78</span>
+              </div>
+            </div>
+            <div className="space-y-3">
+              <div className="flex justify-between items-center">
+                <span className="text-sm text-slate-600">Financial Transparency</span>
+                <div className="w-24 bg-slate-200 rounded-full h-2">
+                  <div className="bg-emerald-500 h-2 rounded-full" style={{width: '85%'}}></div>
+                </div>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-sm text-slate-600">Operational Clarity</span>
+                <div className="w-24 bg-slate-200 rounded-full h-2">
+                  <div className="bg-emerald-500 h-2 rounded-full" style={{width: '72%'}}></div>
+                </div>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-sm text-slate-600">Owner Dependency</span>
+                <div className="w-24 bg-slate-200 rounded-full h-2">
+                  <div className="bg-amber-500 h-2 rounded-full" style={{width: '60%'}}></div>
+                </div>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-sm text-slate-600">Customer Quality</span>
+                <div className="w-24 bg-slate-200 rounded-full h-2">
+                  <div className="bg-emerald-500 h-2 rounded-full" style={{width: '90%'}}></div>
+                </div>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-sm text-slate-600">Transition Readiness</span>
+                <div className="w-24 bg-slate-200 rounded-full h-2">
+                  <div className="bg-amber-500 h-2 rounded-full" style={{width: '65%'}}></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

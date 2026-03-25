@@ -1,6 +1,5 @@
 'use client';
 
-import { View, ScrollView } from 'react-native';
 import { HeroSection } from '@/components/hero-section';
 import { FeaturesShowcase } from '@/components/features-showcase';
 import { WhyDealsFail } from '@/components/why-deals-fail';
@@ -12,17 +11,15 @@ import { DealReadinessAssessment } from '@/components/deal-readiness-assessment'
 
 export default function Home() {
   return (
-    <ScrollView>
-      <View className="bg-background">
-        <HeroSection />
-        <WhyDealsFail />
-        <HowItWorks />
-        <DealLifecycle />
-        <AudienceSections />
-        <DealReadinessAssessment />
-        <DataDefensibility />
-        <FeaturesShowcase />
-      </View>
-    </ScrollView>
+    <div>
+      <HeroSection />
+      <WhyDealsFail />
+      <HowItWorks />
+      <DealLifecycle />
+      <AudienceSections />
+      <DealReadinessAssessment />
+      <DataDefensibility />
+      <FeaturesShowcase />
+    </div>
   );
 }

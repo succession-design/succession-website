@@ -1,3 +1,5 @@
+'use client';
+
 import { VoiceRecorder } from '@/components/voice-recorder';
 
 export default function SellerPortal() {
