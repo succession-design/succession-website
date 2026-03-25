@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {
-  apiVersion: '2025-01-27.acacia',
+  apiVersion: '2026-02-25.clover',
 });
 
 // Map tier slugs to env var price IDs
@@ -13,9 +13,9 @@ const PRICE_IDS: Record<string, string> = {
 };
 
 const TIER_NAMES: Record<string, string> = {
-  trial: 'Trial — $97',
-  core: 'Core Platform — $197/mo',
-  continuity: 'Continuity — $347/mo',
+  trial: 'Deal Prep — $97',
+  core: 'Deal Platform — $197/mo',
+  continuity: 'Transaction Suite — $347/mo',
 };
 
 export async function POST(req: NextRequest) {
